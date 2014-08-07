@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="content" class="col-lg-10 col-sm-11" style="min-height: 579px;">
+			
+			
+			<div class="row">
+				
+				<div class="col-lg-12">
+					<div class="box">
+						<div class="box-header">
+							<h2><i class="fa fa-edit"></i>Wizard</h2>
+							<div class="box-icon">
+								<a href="form-wizard.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+								<a href="form-wizard.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+								<a href="form-wizard.html#" class="btn-close"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<div id="MyWizard" class="wizard">
+								<ul class="steps">
+									<li data-target="#step1" class="complete"><span class="badge badge-success">1</span></li>
+									<li data-target="#step2" class="complete"><span class="badge badge-success">2</span></li>
+									<li data-target="#step3" class="complete"><span class="badge badge-success">3</span></li>
+									<li data-target="#step4" class="complete"><span class="badge badge-success">4</span></li>
+									<li data-target="#step5" class="active"><span class="badge badge-info">5</span></li>
+								</ul>
+								<div class="actions">
+									<button type="button" class="btn btn-prev"> <i class="fa fa-arrow-left"></i> Prev</button>
+									<button type="button" class="btn btn-success btn-next" data-last="Finish">Finish<i class="fa fa-arrow-right"></i></button>
+								</div>
+							</div>
+							<div class="step-content">
+								<div class="step-pane" id="step1">
+									<form class="form-horizontal">
+											
+											<div class="form-group">
+												<label class="control-label" for="selectError30">Plain Select</label>
+												<div class="controls">
+												  	<select id="selectError30" class="form-control">
+														<option>Option 1</option>
+														<option>Option 2</option>
+														<option>Option 3</option>
+														<option>Option 4</option>
+														<option>Option 5</option>
+												  	</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label" for="selectError0">Modern Select</label>
+												<div class="controls">
+												  	<select id="selectError0" class="form-control" style="width: 100%; display: none;" data-rel="chosen">
+														<option>Option 1</option>
+														<option>Option 2</option>
+														<option>Option 3</option>
+														<option>Option 4</option>
+														<option>Option 5</option>
+												  	</select><div class="chosen-container chosen-container-single" style="width: 1021px;" title="" id="selectError0_chosen"><a class="chosen-single" tabindex="-1"><span>Option 5</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"><li class="active-result result-selected" style="" data-option-array-index="0">Option 1</li><li class="active-result result-selected" style="" data-option-array-index="1">Option 2</li><li class="active-result" style="" data-option-array-index="2">Option 3</li><li class="active-result" style="" data-option-array-index="3">Option 4</li><li class="active-result result-selected" style="" data-option-array-index="4">Option 5</li></ul></div></div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label" for="selectError10">Multiple Select / Tags</label>
+												<div class="controls">
+												  	<select id="selectError10" class="form-control" multiple="" data-rel="chosen" style="display: none;">
+														<option>Option 1</option>
+														<option selected="">Option 2</option>
+														<option>Option 3</option>
+														<option>Option 4</option>
+														<option>Option 5</option>
+												  	</select><div class="chosen-container chosen-container-multi" style="width: 1021px;" title="" id="selectError10_chosen"><ul class="chosen-choices"><li class="search-choice"><span>Option 2</span><a class="search-choice-close" data-option-array-index="1"></a></li><li class="search-choice"><span>Option 4</span><a class="search-choice-close" data-option-array-index="3"></a></li><li class="search-choice"><span>Option 5</span><a class="search-choice-close" data-option-array-index="4"></a></li><li class="search-field"><input type="text" value="Select Some Options" class="" autocomplete="off" style="width: 25px;"></li></ul><div class="chosen-drop"><ul class="chosen-results"><li class="active-result" style="" data-option-array-index="0">Option 1</li><li class="result-selected" style="" data-option-array-index="1">Option 2</li><li class="active-result" style="" data-option-array-index="2">Option 3</li><li class="result-selected" style="" data-option-array-index="3">Option 4</li><li class="result-selected" style="" data-option-array-index="4">Option 5</li></ul></div></div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label" for="selectError20">Group Select</label>
+												<div class="controls">
+													<select class="form-control" data-placeholder="Your Favorite Football Team" id="selectError20" data-rel="chosen" style="display: none;">
+														<option value=""></option>
+														<optgroup label="NFC EAST">
+														  	<option>Dallas Cowboys</option>
+														  	<option>New York Giants</option>
+														  	<option>Philadelphia Eagles</option>
+														  	<option>Washington Redskins</option>
+														</optgroup>
+														<optgroup label="NFC NORTH">
+														  	<option>Chicago Bears</option>
+														  	<option>Detroit Lions</option>
+														  	<option>Green Bay Packers</option>
+														  	<option>Minnesota Vikings</option>
+														</optgroup>
+														<optgroup label="NFC SOUTH">
+														  	<option>Atlanta Falcons</option>
+														 	<option>Carolina Panthers</option>
+														  	<option>New Orleans Saints</option>
+														  	<option>Tampa Bay Buccaneers</option>
+														</optgroup>
+														<optgroup label="NFC WEST">
+														  	<option>Arizona Cardinals</option>
+														  	<option>St. Louis Rams</option>
+														  	<option>San Francisco 49ers</option>
+														  	<option>Seattle Seahawks</option>
+														</optgroup>
+														<optgroup label="AFC EAST">
+														  	<option>Buffalo Bills</option>
+														  	<option>Miami Dolphins</option>
+														  	<option>New England Patriots</option>
+														  	<option>New York Jets</option>
+														</optgroup>
+														<optgroup label="AFC NORTH">
+														  	<option>Baltimore Ravens</option>
+														  	<option>Cincinnati Bengals</option>
+														  	<option>Cleveland Browns</option>
+														  	<option>Pittsburgh Steelers</option>
+														</optgroup>
+														<optgroup label="AFC SOUTH">
+														  	<option>Houston Texans</option>
+														  	<option>Indianapolis Colts</option>
+														  	<option>Jacksonville Jaguars</option>
+														  	<option>Tennessee Titans</option>
+														</optgroup>
+														<optgroup label="AFC WEST">
+														  	<option>Denver Broncos</option>
+														  	<option>Kansas City Chiefs</option>
+														  	<option>Oakland Raiders</option>
+														  	<option>San Diego Chargers</option>
+														</optgroup>
+													</select><div class="chosen-container chosen-container-single" style="width: 1021px;" title="" id="selectError20_chosen"><a class="chosen-single" tabindex="-1"><span>Washington Redskins</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"><li class="group-result">NFC EAST</li><li class="active-result group-option" style="" data-option-array-index="2">Dallas Cowboys</li><li class="active-result result-selected group-option" style="" data-option-array-index="3">New York Giants</li><li class="active-result group-option" style="" data-option-array-index="4">Philadelphia Eagles</li><li class="active-result group-option result-selected" style="" data-option-array-index="5">Washington Redskins</li><li class="group-result">NFC NORTH</li><li class="active-result group-option" style="" data-option-array-index="7">Chicago Bears</li><li class="active-result group-option" style="" data-option-array-index="8">Detroit Lions</li><li class="active-result group-option" style="" data-option-array-index="9">Green Bay Packers</li><li class="active-result group-option" style="" data-option-array-index="10">Minnesota Vikings</li><li class="group-result">NFC SOUTH</li><li class="active-result group-option" style="" data-option-array-index="12">Atlanta Falcons</li><li class="active-result group-option" style="" data-option-array-index="13">Carolina Panthers</li><li class="active-result group-option" style="" data-option-array-index="14">New Orleans Saints</li><li class="active-result group-option" style="" data-option-array-index="15">Tampa Bay Buccaneers</li><li class="group-result">NFC WEST</li><li class="active-result group-option" style="" data-option-array-index="17">Arizona Cardinals</li><li class="active-result group-option" style="" data-option-array-index="18">St. Louis Rams</li><li class="active-result group-option" style="" data-option-array-index="19">San Francisco 49ers</li><li class="active-result group-option" style="" data-option-array-index="20">Seattle Seahawks</li><li class="group-result">AFC EAST</li><li class="active-result group-option" style="" data-option-array-index="22">Buffalo Bills</li><li class="active-result group-option" style="" data-option-array-index="23">Miami Dolphins</li><li class="active-result group-option" style="" data-option-array-index="24">New England Patriots</li><li class="active-result group-option" style="" data-option-array-index="25">New York Jets</li><li class="group-result">AFC NORTH</li><li class="active-result group-option" style="" data-option-array-index="27">Baltimore Ravens</li><li class="active-result group-option" style="" data-option-array-index="28">Cincinnati Bengals</li><li class="active-result group-option" style="" data-option-array-index="29">Cleveland Browns</li><li class="active-result group-option" style="" data-option-array-index="30">Pittsburgh Steelers</li><li class="group-result">AFC SOUTH</li><li class="active-result group-option" style="" data-option-array-index="32">Houston Texans</li><li class="active-result group-option" style="" data-option-array-index="33">Indianapolis Colts</li><li class="active-result group-option" style="" data-option-array-index="34">Jacksonville Jaguars</li><li class="active-result group-option" style="" data-option-array-index="35">Tennessee Titans</li><li class="group-result">AFC WEST</li><li class="active-result group-option" style="" data-option-array-index="37">Denver Broncos</li><li class="active-result group-option" style="" data-option-array-index="38">Kansas City Chiefs</li><li class="active-result group-option" style="" data-option-array-index="39">Oakland Raiders</li><li class="active-result group-option" style="" data-option-array-index="40">San Diego Chargers</li></ul></div></div>
+												</div>
+											</div>
+										
+									</form>
+								</div>
+								<div class="step-pane" id="step2">
+									<form class="form-horizontal">
+											
+											<div class="form-group">
+												<label class="control-label" for="input1">Company Name</label>
+												<div class="controls">
+										  			<input type="text" class="form-control" id="input1">
+												</div>
+									  		</div>
+									  		<div class="form-group">
+												<label class="control-label" for="input2">Company Address</label>
+												<div class="controls">
+										  			<input type="text" class="form-control" id="input2">
+												</div>
+									  		</div>
+									  		<div class="form-group">
+												<label class="control-label" for="input3">WWW</label>
+												<div class="controls">
+										  			<input type="text" class="form-control" id="input3">
+												</div>
+									  		</div>
+										
+									</form>
+								</div>
+								<div class="step-pane" id="step3">
+									<form class="form-horizontal">
+											
+											<div class="form-group has-warning">
+												<label class="control-label" for="inputWarning">First Name</label>
+												<div class="controls row">
+													<div class="col-sm-4">
+										  				<input type="text" class="form-control" id="inputWarning">
+													</div>
+										  			<span class="help-block col-sm-8">Something may have gone wrong</span>
+												</div>
+									  		</div>
+									  		<div class="form-group has-error">
+												<label class="control-label" for="inputError">Last Name</label>
+												<div class="controls row">
+										  			<div class="col-sm-4">
+										  				<input type="text" class="form-control" id="inputError">
+													</div>
+										  			<span class="help-block col-sm-8">Please correct the error</span>
+												</div>
+									  		</div>
+									  		<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">Phone Number</label>
+												<div class="controls row">
+										  			<div class="col-sm-4">
+										  				<input type="text" class="form-control" id="inputSuccess">
+													</div>
+										  			<span class="help-block col-sm-8">Woohoo!</span>
+												</div>
+									  		</div>	
+											
+										
+									</form>	
+								</div>
+								<div class="step-pane" id="step4">
+									<div class="alert alert-info">
+										<button type="button" class="close" data-dismiss="alert">×</button>
+										<strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+									</div>
+									<p>
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+									</p>
+									<div class="controls">
+									  <label class="checkbox inline">
+										<input type="checkbox" id="inlineCheckbox2" value="option5"> I agree
+									  </label>
+									</div>	
+								</div>
+								<div class="step-pane active" id="step5">
+									<form class="form-horizontal">
+											
+
+											<div class="form-group">
+									     		<label class="control-label">Fullname:</label>
+												<div class="controls">
+													<span class="input-xlarge uneditable-input">Łukasz Holeczek</span>
+												</div>
+											</div>
+											<div class="form-group">
+									      		<label class="control-label">Email:</label>
+									     		<div class="controls">
+									          		<span class="input-xlarge uneditable-input">lukasz[@]clabs[dot].com</span>
+									  			</div>
+											</div>
+									        <div class="form-group">
+												<label class="control-label">Phone:</label>
+									            <div class="controls">
+													<span class="input-xlarge uneditable-input">+48 123 456 789</span>
+									     		</div>
+									   		</div>
+									   		<div class="form-group">
+									        	<label class="control-label"></label>
+									           	<div class="controls">
+									     			<label class="checkbox">
+									           			<input type="checkbox" value=""> I confirm this information
+									             	</label>
+									 			</div>
+									       	</div>
+										
+									</form>	
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					
+				</div><!--/col-->
+
+			</div><!--/row-->
+	
+			</div>
+</body>
+</html>
