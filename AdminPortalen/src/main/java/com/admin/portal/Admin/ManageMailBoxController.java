@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.admin.portal.Common.CommonController;
+import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Model.Notifications;
 import com.admin.portal.Model.User;
 
@@ -30,6 +31,8 @@ public class ManageMailBoxController extends CommonController {
 		logger.info("Notification List::"+nlist.size());
 	 	model.addAttribute("nlist", nlist);
 		model.addAttribute("user", user);
+		
+		//List<MessageFolder> folders=inboxService.getMessageFolderList();
 		
         return "admin/mailBox";
     }	  

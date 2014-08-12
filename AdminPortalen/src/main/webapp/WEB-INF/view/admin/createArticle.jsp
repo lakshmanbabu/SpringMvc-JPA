@@ -69,6 +69,7 @@
  <script type="text/javascript">
  var contextPath;
  $(function(){
+	 ShowTime();
 	  contextPath = $('#contextPath').val();
 	  
 	  $("#submitBtn").click(function(){

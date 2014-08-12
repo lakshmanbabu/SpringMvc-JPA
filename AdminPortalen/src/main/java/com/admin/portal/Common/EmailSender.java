@@ -1,5 +1,6 @@
 package com.admin.portal.Common;
 
+import java.security.Principal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -83,7 +84,7 @@ public class EmailSender {
 			}
 		};
 		mailSender.send(preparator);
-		savelocalMessage(localmessage, email);
+		savelocalMessage(localmessage, email,user);
 		saveNotificationMessage(notifications, email,user);
 		System.out.println("welcome email sent successfully");
 	}
@@ -148,7 +149,7 @@ public class EmailSender {
 			};
 		mailSender.send(preparator);
 		saveNotificationMessage(notifications, email,user);
-		savelocalMessage(localmessage, email);
+		savelocalMessage(localmessage, email,user);
 		System.out.println("mail send successfully");
 	}
 
@@ -164,7 +165,7 @@ public class EmailSender {
 
 
 	@SuppressWarnings("unchecked")	
-	public void savelocalMessage(Message localMessage, Email email) {
+	public void savelocalMessage(Message localMessage, Email email, User user) {
 		logger.info("=====>All Email Saving In the local database<==========\n");
 		
 		
@@ -177,6 +178,7 @@ public class EmailSender {
 		MessageFolder receivermessageFolder = new MessageFolder();
 			receivermessageFolder.setMessage(localMessage);
 			receivermessageFolder.setStatus(0);
+			receivermessageFolder.setUser(user);
 			receivermessageFolder.setReceiverEmail(email.getMailto());
 			receivermessageFolder.setSenderEmail(email.getFrom());
 			messageFolders.add(receivermessageFolder);

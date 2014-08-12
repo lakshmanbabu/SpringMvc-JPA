@@ -144,6 +144,9 @@ word-break:break-all;
 <script type="text/javascript">
 var contextPath;
 $(function(){
+	
+	ShowTime();
+	
 	contextPath = $('#contextPath').val();
 	 $("#articleTable").dataTable();
 	 

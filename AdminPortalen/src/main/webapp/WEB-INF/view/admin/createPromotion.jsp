@@ -74,6 +74,7 @@
  <script type="text/javascript">
  var contextPath;
  $(function(){
+	 ShowTime();
   contextPath = $('#contextPath').val();
   
   $("#sampleText").val("A good title is important to the success of your campaign. admin portal users are an intelligent, thoughtful group, and reward those who engage them.");

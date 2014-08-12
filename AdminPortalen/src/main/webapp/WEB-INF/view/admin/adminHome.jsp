@@ -7,6 +7,60 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>admin Home</title>
 <style type="text/css">
+/* light color backgrounds */
+.panel-default > .panel-heading,
+.panel-default > .panel-footer {
+  background-color: #eeeeee;
+  color: #333333;
+  /*border-color:@bc;*/
+}
+.panel-primary > .panel-heading,
+.panel-primary > .panel-footer {
+  background-color: #3b87ec;
+}
+.panel-info > .panel-heading,
+.panel-info > .panel-footer,
+.list-group-item-info {
+  background-color: #67c7f8;
+  color: #ffffff;
+  /*border-color:@bc;*/
+}
+.panel-warning > .panel-heading,
+.panel-warning > .panel-footer {
+  background-color: #f8d145;
+}
+.panel-danger > .panel-heading,
+.panel-danger > .panel-footer {
+  background-color: #ff4f3d;
+}
+.panel-success > .panel-heading,
+.panel-success > .panel-footer {
+  background-color: #6dc96d;
+}
+.panel-default,
+.panel-default > .panel-heading {
+  border-color: #eeeeee;
+}
+.panel-primary,
+.panel-primary > .panel-heading {
+  border-color: #2a76db;
+}
+.panel-info,
+.panel-info > .panel-heading {
+  border-color: #45a5e6;
+}
+.panel-warning,
+.panel-warning > .panel-heading {
+  border-color: #f7c034;
+}
+.panel-danger,
+.panel-danger > .panel-heading {
+  border-color: #df2e1b;
+}
+.panel-success,
+.panel-success > .panel-heading {
+  border-color: #5cb85c;
+}
 
 </style>
 </head>
@@ -518,8 +572,8 @@
                                 <div class="box-footer clearfix no-border">
                                     <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
                                 </div>
+                               
                             </div>
-
                         </section>
                     </div>
 

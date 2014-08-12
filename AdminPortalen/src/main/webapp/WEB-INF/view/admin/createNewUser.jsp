@@ -136,7 +136,7 @@
   var contextPath;
   $(function(){
 	  contextPath = $('#contextPath').val();
-	  
+	  ShowTime();
 	  $("#submitBtn").click(function(){
 		$.blockUI({ 
 	    		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',

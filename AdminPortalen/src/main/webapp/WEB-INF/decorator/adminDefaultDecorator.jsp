@@ -37,7 +37,10 @@
   <link href="${contextPath}/resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
  <link href="${contextPath}/resources/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
  <link rel="stylesheet" href="${contextPath}/resources/css/jquery-ui.css" /> 
- 
+ <style type="text/css">
+
+
+</style>
 </head>
 <body  class="skin-blue">
 
@@ -158,18 +161,28 @@
                                     <c:forEach items="${nlist}" var="notofication" varStatus="status" >
                                         <c:choose>
                                        		<c:when test="${notofication.checkMsg =='article'}">
-	                                       		<li>
+	                                       		<!-- <li>
 		                                            <a href="#">
-		                                                <i class="ion ion-ios7-people info"></i> new members joined
+		                                                <i class="fa fa-user"></i> new members joined
 		                                            </a>
-		                                        </li>
+		                                        </li> -->
+		                                        <li>
+				                                    <a href="#">
+														+ <i class="fa fa-user"></i> <span class="message">New user registration</span> <span class="time" style="margin-left: 60px;">1 min</span> 
+				                                    </a>
+				                                </li>
                                         	</c:when>
                                         	<c:when test="${notofication.checkMsg =='promote'}">
-	                                       		<li>
+	                                       		<!-- <li>
 		                                            <a href="#">
 		                                                <i class="ion ion-ios7-cart success"></i> new promotion posted
 		                                            </a>
-		                                        </li>
+		                                        </li> -->
+		                                        <li>
+				                                   <a href="#">
+													+ <i class="fa fa-comment-o"></i> <span class="message">new promotion posted</span> <span class="time" style="margin-left: 56px;">8 min</span> 
+				                                   </a>
+				                               </li>
                                         	</c:when>
                                         </c:choose>
                                           </c:forEach>
@@ -351,6 +364,10 @@
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
+			           <div class="col-xs-8" style=" font-weight:bold"><br/>
+			            <a title="Calendar" href="javascript:void(0);" current-time="'h:mm:ss a'"  id="time" style="color: #2a6496; font-size: 18px;"></a>
+			           </div>
+					         
                     </div>
                     <!-- search form -->
                     <form action="#" method="get" class="sidebar-form">
@@ -361,8 +378,7 @@
                             </span>
                         </div>
                     </form>
-                    <!-- /.search form -->
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                   
                     <ul class="sidebar-menu">
                         <li class="active">
                             <a href="${contextPath}/admin/adminHome">
@@ -554,7 +570,24 @@
  <script type="text/javascript" src="${contextPath}/resources/js/jquery-1.10.2.min.js"></script>
 <link rel="stylesheet" href="${contextPath}/resources/admin/css/demo_page.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="${contextPath}/resources/admin/css/demo_table.css" type="text/css" media="screen" /> --%>
+<script type="text/javascript">
 
+/* window.onload = function(){date()}, setInterval(function(){date()}, 1000);
+
+function date() {
+    var now = new Date(),
+        now = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+    $('#time').html(now);
+} */
+$(document).ready(function() {
+	ShowTime();
+	});
+	function ShowTime() {
+	var dt = new Date();
+	document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+	window.setTimeout("ShowTime()", 1000); // Here 1000(milliseconds) means one 1 Sec  
+	}
+</script>
 	
 </body>
 </html>

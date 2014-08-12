@@ -164,7 +164,7 @@
                     
  <script type="text/javascript">
  $(document).ready(function(){
-	
+	 ShowTime();
 	 var userRole='${user.userRole}';
 	 if(userRole=="ROLE_ADMIN"){
 		 $("#userRole").val("ROLE_ADMIN");

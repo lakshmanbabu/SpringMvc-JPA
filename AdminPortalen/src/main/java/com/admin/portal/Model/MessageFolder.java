@@ -3,6 +3,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,6 +29,7 @@ public class MessageFolder implements java.io.Serializable {
 	private String receiverEmail;
 	private String firstName;
 	private String lastName;
+	private User user;
 	
 	public MessageFolder() {
 	}
@@ -87,6 +89,17 @@ public class MessageFolder implements java.io.Serializable {
 	public void setReceiverEmail(String receiverEmail) {
 		this.receiverEmail = receiverEmail;
 	}
+	
+	@JsonIgnore
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	@Transient
 	public String getFirstName() {
 		return firstName;

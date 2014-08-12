@@ -67,7 +67,7 @@ word-break:break-all;
 								                <div class="modal-content">
 								                    <div class="modal-header">
 								                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								                        <h4 class="modal-title"> Update Article </h4>
+								                        <h4 class="modal-title">  Update Category </h4>
 								                    </div>
 								                    <form id="categoryUpdate_form${status.count}">
 								                     <input name="cId"  id="cId${status.count}" type="hidden" >
@@ -84,7 +84,7 @@ word-break:break-all;
 								
 								                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
 								
-								                            <button type="button" class="btn btn-primary pull-left" data-btnid="${status.count}" onclick="UpdateCategory(this)" id="categoryUpdate"> Update Article</button>
+								                            <button type="button" class="btn btn-primary pull-left" data-btnid="${status.count}" onclick="UpdateCategory(this)" id="categoryUpdate"> Update Category</button>
 								                        </div>
 								                    </form>
 								                </div>
@@ -157,6 +157,7 @@ word-break:break-all;
 <script type="text/javascript">
 var contextPath;
 $(function(){
+	ShowTime();
 	contextPath = $('#contextPath').val();
 	 $("#categoryTable").dataTable();
 	 

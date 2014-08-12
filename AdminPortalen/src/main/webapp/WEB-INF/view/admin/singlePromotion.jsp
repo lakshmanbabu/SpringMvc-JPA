@@ -112,7 +112,7 @@
  var contextPath;
  $(function(){
   contextPath = $('#contextPath').val();
-  
+  ShowTime();
   /* $('input:radio[name=r3]').on('ifChecked', function(event){
 		 //alert($(this).val());
 		  var val=$(this).val();

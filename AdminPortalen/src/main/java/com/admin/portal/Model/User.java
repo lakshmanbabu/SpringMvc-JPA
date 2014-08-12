@@ -45,6 +45,7 @@ public class User implements Serializable {
 	private Set<Notifications> notificationses = new HashSet<Notifications>(0);
 	private Set<Article> articles = new HashSet<Article>(0);
 	private Set<Promotions> promotions = new HashSet<Promotions>(0);
+	private Set<MessageFolder> messageFolders = new HashSet<MessageFolder>(0);
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -208,6 +209,15 @@ public class User implements Serializable {
 	}
 	public void setPromotions(Set<Promotions> promotions) {
 		this.promotions = promotions;
+	}
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	public Set<MessageFolder> getMessageFolders() {
+		return messageFolders;
+	}
+	public void setMessageFolders(Set<MessageFolder> messageFolders) {
+		this.messageFolders = messageFolders;
 	}
 	
 	
