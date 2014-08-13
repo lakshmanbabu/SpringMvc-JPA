@@ -3,6 +3,7 @@ package com.admin.portal.Model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Cacheable;
@@ -117,5 +118,23 @@ public class Message implements Serializable {
 		this.receiverEmail = receiverEmail;
 	}
 
+	private List ccEmail;
+	private List bccEmail;
+	@Transient
+	public List getCcEmail() {
+		return ccEmail;
+	}
+
+	public void setCcEmail(List ccEmail) {
+		this.ccEmail = ccEmail;
+	}
+	@Transient
+	public List getBccEmail() {
+		return bccEmail;
+	}
+
+	public void setBccEmail(List bccEmail) {
+		this.bccEmail = bccEmail;
+	}
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.admin.portal.Common.CommonController;
+import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Model.Notifications;
 import com.admin.portal.Model.Promotions;
 import com.admin.portal.Model.User;
@@ -53,6 +54,10 @@ public class AdminController extends CommonController {
 	 	List<Promotions> promotions=promotionService.getPromotionsById(user.getUserId());
 	 	model.addAttribute("promotions", promotions);
 	 	
+	 	List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+		model.addAttribute("folderssize", folderssize);
+		logger.info("folders size::"+folderssize.size());
+		
 		model.addAttribute("page", "adminHome");
 		return "admin/adminHome";
 	}
@@ -65,6 +70,9 @@ public class AdminController extends CommonController {
 		System.out.println("main home page");
 		model.addAttribute("page", "adminHome");
 		
+		List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+		model.addAttribute("folderssize", folderssize);
+		logger.info("folders size::"+folderssize.size());
 		return "admin/profile";
 	}
 	

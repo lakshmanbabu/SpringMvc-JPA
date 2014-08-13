@@ -1,6 +1,4 @@
 package com.admin.portal.Model;
-import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -116,5 +114,8 @@ public class MessageFolder implements java.io.Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	
+	
 	
 }

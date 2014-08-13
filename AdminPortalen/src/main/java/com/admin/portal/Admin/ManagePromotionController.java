@@ -28,6 +28,7 @@ import com.admin.portal.Common.CommonController;
 import com.admin.portal.Common.Email;
 import com.admin.portal.Common.GenericResponse;
 import com.admin.portal.Model.Article;
+import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Model.Notifications;
 import com.admin.portal.Model.Promotions;
 import com.admin.portal.Model.User;
@@ -51,6 +52,11 @@ public class ManagePromotionController extends CommonController{
 			List<Notifications> nlist=articleService.getNotificationById(user.getUserId());
 			logger.info("Notification List::"+nlist.size());
 		 	model.addAttribute("nlist", nlist);
+		 	
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
+			
 	        return "admin/createPromotion";
 	    }	
 	 
@@ -103,6 +109,10 @@ public class ManagePromotionController extends CommonController{
 		 	}
 		 	model.addAttribute("promotions", promotions);
 		 	
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
+			
 	        return "admin/viewPostedAd";
 	    }	
 	 
@@ -120,6 +130,10 @@ public class ManagePromotionController extends CommonController{
 		 	Promotions promotions=promotionService.getPromotion(promotionId);
 		 	model.addAttribute("promotions", promotions);
 		 	
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
+			
 	        return "admin/singlePromotion";
 	    }	
 	 

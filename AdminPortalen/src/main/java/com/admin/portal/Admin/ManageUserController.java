@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.admin.portal.Common.CommonController;
 import com.admin.portal.Common.Email;
 import com.admin.portal.Common.GenericResponse;
+import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Model.Notifications;
 import com.admin.portal.Model.User;
 import com.admin.portal.Model.UserRoles;
@@ -47,8 +48,11 @@ public class ManageUserController extends CommonController{
 		
 		logger.info("Notification List::"+nlist.size());
 	 	model.addAttribute("nlist", nlist);
-	 	
 		model.addAttribute("user", user);
+		
+		List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+		model.addAttribute("folderssize", folderssize);
+		logger.info("folders size::"+folderssize.size());
 		
         return "admin/createNewUser";
     }	  
@@ -68,6 +72,10 @@ public class ManageUserController extends CommonController{
 			logger.info("Notification List::"+nlist.size());
 		 	model.addAttribute("nlist", nlist);
 			model.addAttribute("user", user);
+			
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
 			
 	        return "admin/viewUserDetail";
 	    }	  
@@ -168,6 +176,11 @@ public class ManageUserController extends CommonController{
 				userService.updateUserRole(userRoles);
 			}
 			
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
+			
+			
 			return "admin/viewUserDetail";
 		}
 		
@@ -189,6 +202,10 @@ public class ManageUserController extends CommonController{
 			List<Notifications> nlist=articleService.getNotificationById(user.getUserId());
 			logger.info("Notification List::"+nlist.size());
 		 	model.addAttribute("nlist", nlist);
+			
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
 			
 			return "admin/adminProfile";
 		}
@@ -239,6 +256,14 @@ public class ManageUserController extends CommonController{
 				
 				model.addAttribute("update", "Admin Profile Updated Sucessfully");
 			}
+			
+			List<Notifications> nlist=articleService.getNotificationById(user.getUserId());
+			logger.info("Notification List::"+nlist.size());
+		 	model.addAttribute("nlist", nlist);
+		 	
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
 			
 			return "admin/adminProfile";
 		}	

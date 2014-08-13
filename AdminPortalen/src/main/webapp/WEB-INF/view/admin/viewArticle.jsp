@@ -88,7 +88,7 @@ word-break:break-all;
 								
 								                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
 								
-								                            <button type="button" class="btn btn-primary pull-left" data-btnid="${status.count}" onclick="articleUpdate(this)" id="articleUpdate"> Update Article</button>
+								                            <button type="button" class="btn btn-primary pull-left" data-btnid="${status.count}" onclick="articleUpdates(this)" id="articleUpdate"> Update Article</button>
 								                        </div>
 								                    </form>
 								                </div>
@@ -120,15 +120,7 @@ word-break:break-all;
 								        </div>
 	                                          </c:forEach>
                                      </tbody>
-                                    <!--  <tfoot>
-                                         <tr>
-                                             <th>Rendering engine</th>
-                                             <th>Browser</th>
-                                             <th>Platform(s)</th>
-                                             <th>Engine version</th>
-                                             <th>CSS grade</th>
-                                         </tr>
-                                     </tfoot> -->
+                                   
                                  </table>
                              </div>
                          </div>
@@ -139,8 +131,8 @@ word-break:break-all;
             </aside>
         </div>
       
- 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>      
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>   
+<%--  <script src="${contextPath}/resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>   --%> 
 <script type="text/javascript">
 var contextPath;
 $(function(){
@@ -150,10 +142,14 @@ $(function(){
 	contextPath = $('#contextPath').val();
 	 $("#articleTable").dataTable();
 	 
+	
+	 
 	$('#articleUpdate').click(function(){
 		
-		articleUpdate(this);
-	})
+		
+		articleUpdates(this);
+	});
+	
 });
 
 
@@ -176,7 +172,7 @@ function EditArticleDetails(param,articleId){
 }
 
 
-function articleUpdate(param){
+function articleUpdates(param){
 	contextPath = $('#contextPath').val();
 	
 	var index = $(param).attr('data-btnid');

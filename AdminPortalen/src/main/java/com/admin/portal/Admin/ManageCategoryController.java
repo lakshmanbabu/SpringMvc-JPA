@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.admin.portal.Common.CommonController;
 import com.admin.portal.Common.GenericResponse;
 import com.admin.portal.Model.Category;
+import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Model.Notifications;
 import com.admin.portal.Model.User;
 
@@ -45,6 +46,9 @@ public class ManageCategoryController extends CommonController {
 			List<Category> clist=categoryService.getCategoryList();
 			model.addAttribute("clist", clist);
 			
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folderssize.size());
 			return "admin/manageCategory";
 		}
 	

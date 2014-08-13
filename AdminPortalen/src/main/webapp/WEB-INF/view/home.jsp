@@ -9,7 +9,7 @@
 </head>
 <body >
 
-<h2 align="center">Welcome to Admin portalen</h2>
+<h2 align="center">Welcome to Admin portal</h2>
 
 
 

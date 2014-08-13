@@ -73,10 +73,10 @@
                         
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
-                                <span class="label label-success">4</span>
+                                <span class="label label-success">${folderssize.size()}</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">You have 4 messages</li>
+                                <li class="header">You have ${folderssize.size()} messages</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
@@ -142,7 +142,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
+                                <li class="footer"><a href="${contextPath}/admin/mailBox">See All Messages</a></li>
                             </ul>
                         </li>
                          <c:set value="${nlist.size()}" var="size"/>
@@ -365,7 +365,7 @@
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
 			           <div class="col-xs-8" style=" font-weight:bold"><br/>
-			            <a title="Calendar" href="javascript:void(0);" current-time="'h:mm:ss a'"  id="time" style="color: #2a6496; font-size: 18px;"></a>
+			            <a title="Calendar" href="javascript:void(0);" current-time="'h:mm:ss a'"  id="time" style="color: #2a6496; font-size: 16px;"></a>
 			           </div>
 					         
                     </div>
@@ -388,7 +388,7 @@
                          <li>
                             <a href="${contextPath}/admin/mailBox">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                                <small class="badge pull-right bg-yellow">${folderssize.size()}</small>
                             </a>
                         </li>
                         <li class="active">
@@ -526,12 +526,12 @@
   <!-- jQuery 2.0.2 -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <!-- jQuery UI 1.10.3 -->
-<%--   <script src="${contextPath}/resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script> --%>
+<%-- <script src="${contextPath}/resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script> --%>
 
   <!-- Bootstrap -->
   <script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
   <!-- Morris.js charts -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
   <script src="${contextPath}/resources/js/plugins/morris/morris.min.js" type="text/javascript"></script>
   <!-- Sparkline -->
   <script src="${contextPath}/resources/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>

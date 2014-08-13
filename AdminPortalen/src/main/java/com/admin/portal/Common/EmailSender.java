@@ -1,6 +1,5 @@
 package com.admin.portal.Common;
 
-import java.security.Principal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -153,6 +152,49 @@ public class EmailSender {
 		System.out.println("mail send successfully");
 	}
 
+	public void sendComposeEmail(final Message message1,final User user, final Email email,final HttpServletRequest request, final HttpServletResponse response1) {
+		
+		final Notifications notifications = new Notifications();
+		final Message localmessage = new Message();
+		MimeMessagePreparator preparator = new MimeMessagePreparator() {
+			@SuppressWarnings("unchecked")
+			public void prepare(MimeMessage mimeMessage) throws Exception {
+				Map<String, Object> model = new HashMap<String, Object>();
+				MimeMessageHelper message = new MimeMessageHelper(mimeMessage,true);
+				model.put("home", host);
+				model.put("user",user);
+				model.put("message",message1);
+				message.setTo(email.getMailto());
+				message.setFrom(email.getFrom());
+				if(email.getTo().size()!=0){
+					message.setCc((String[]) email.getTo().toArray(new String[email.getTo().size()]));
+				}
+				if(email.getbCC().size()!=0){
+					message.setBcc((String[]) email.getbCC().toArray(new String[email.getbCC().size()]));
+				}
+				
+				message.setSubject(message1.getSubject());
+				
+				String body = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "composeBody.vm", "UTF-8", model);
+				message.setText(body, true);
+				
+				localmessage.setSubject(message1.getSubject());
+				localmessage.setBody(body);
+				
+				
+				notifications.setNotifactionMsg(message1.getSubject());
+				notifications.setCheckMsg("compose");
+				email.setFrom(user.getEmail());
+				}
+			};
+		mailSender.send(preparator);
+		saveNotificationMessage(notifications, email,user);
+		savelocalMessage(localmessage, email,user);
+		System.out.println("mail send successfully");
+		
+	}
+
+
 	public void saveNotificationMessage(Notifications notifications,Email email, User user) {
 		
 		notifications.setNtDate(new Date());
@@ -191,6 +233,8 @@ public class EmailSender {
 		logger.info("=====>All Emai saved successfully<==========");
 	}
 
+
+	
 
 	
 
