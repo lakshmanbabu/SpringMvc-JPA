@@ -87,7 +87,7 @@
   ShowTime();
   $('#paging_container8').pajinate({
 		num_page_links_to_display : 3,
-		items_per_page : 10	
+		items_per_page : 5	
 	});
   
   

@@ -61,7 +61,7 @@ function EditUserDetails(userId){
 
 function updateUserDetails(e){
     e.preventDefault();
-    //alert($('#employmentForm').serialize());
+    //alert($('#update-Userform').serialize());
   
      $.post(contextPath+"/admin/updateUserDetails",$('#update-Userform').serialize(), function() {
          $('#update-Userform')[0].reset();

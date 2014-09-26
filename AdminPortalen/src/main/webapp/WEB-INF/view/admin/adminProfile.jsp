@@ -78,7 +78,7 @@
                                            <select name="enabled" id="enabled" class="form-control" required="required">
 						    					<option value="">Select Status</option>
 						    					<option value="1">Active</option>
-						    					<option value="0">Pending</option>
+						    					<option value="0">Inactive</option>
 						    				</select>
                                         </div>
                                     </div>

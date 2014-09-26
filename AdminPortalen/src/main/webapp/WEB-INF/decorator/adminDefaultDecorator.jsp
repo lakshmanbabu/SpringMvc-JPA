@@ -431,6 +431,11 @@
                                 <i class="fa fa-flag-checkered"></i> <span>Manage Categories</span>
                             </a>
                         </li>
+                          <li class="active">
+                            <a href="${contextPath}/admin/manageMap">
+                                <i class="fa fa-globe"></i> <span>Manage Map</span>
+                            </a>
+                        </li>
                         <%-- <li>
                             <a href="${contextPath}/resources/htmlpages/widgets.html">
                                 <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
@@ -566,6 +571,8 @@
   <script src="${contextPath}/resources/js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
   <script src="${contextPath}/resources/js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
   <script type="text/javascript" src="${contextPath}/resources/js/jquery.pajinate.js"></script>
+  
+
 <%-- 
  <script type="text/javascript" src="${contextPath}/resources/js/jquery-1.10.2.min.js"></script>
 <link rel="stylesheet" href="${contextPath}/resources/admin/css/demo_page.css" type="text/css" media="screen" />

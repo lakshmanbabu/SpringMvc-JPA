@@ -344,7 +344,7 @@
                         <section class="col-lg-6 connectedSortable">
                             <!-- Map box -->
                             <div class="box box-primary">
-                                <div class="box-header">
+                               <!--  <div class="box-header">
                                    
                                     <div class="pull-right box-tools">                                        
                                         <button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>
@@ -358,7 +358,7 @@
                                 </div>
                                 <div class="box-body no-padding">
                                     <div id="world-map" style="height: 300px;"></div>
-                                    <!-- <div class="table-responsive">
+                                     <div class="table-responsive">
                                       
                                         <table class="table table-striped">
                                             <tr>
@@ -404,12 +404,12 @@
                                                 <td>947</td>
                                             </tr>
                                         </table>
-                                    </div> -->
+                                    </div> 
                                 </div>
                                 <div class="box-footer">
                                     <button class="btn btn-info"><i class="fa fa-download"></i> Generate PDF</button>
                                     <button class="btn btn-warning"><i class="fa fa-bug"></i> Report Bug</button>
-                                </div>
+                                </div> -->
                             </div>
                            
                             
