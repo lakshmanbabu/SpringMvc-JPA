@@ -168,7 +168,7 @@
 		                                        </li> -->
 		                                        <li>
 				                                    <a href="#">
-														+ <i class="fa fa-user"></i> <span class="message">New user registration</span> <span class="time" style="margin-left: 60px;">1 min</span> 
+														 <i class="fa fa-user"></i> <span class="message">New user registration</span> <span class="time" style="margin-left: 60px;">1 min</span> 
 				                                    </a>
 				                                </li>
                                         	</c:when>
@@ -180,7 +180,7 @@
 		                                        </li> -->
 		                                        <li>
 				                                   <a href="#">
-													+ <i class="fa fa-comment-o"></i> <span class="message">new promotion posted</span> <span class="time" style="margin-left: 56px;">8 min</span> 
+													 <i class="fa fa-list-alt"></i> <span class="message">new promotion posted</span> <span class="time" style="margin-left: 56px;">8 min</span> 
 				                                   </a>
 				                               </li>
                                         	</c:when>

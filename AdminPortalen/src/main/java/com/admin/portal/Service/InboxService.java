@@ -17,4 +17,6 @@ public interface InboxService {
 
 	public List<MessageFolder> getMessageFolderListSize(Integer userId, String email);
 
+	public List<MessageFolder> getSendItems(Integer userId, String email);
+
 }

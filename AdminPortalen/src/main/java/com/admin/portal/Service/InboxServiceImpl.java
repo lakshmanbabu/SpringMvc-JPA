@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.admin.portal.Model.Message;
 import com.admin.portal.Model.MessageFolder;
-import com.admin.portal.Model.User;
 import com.admin.portal.Repository.InboxRepository;
 import com.admin.portal.Repository.MessageFolderRepository;
 
@@ -43,6 +42,12 @@ public class InboxServiceImpl implements InboxService {
 	@Override
 	public List<MessageFolder> getMessageFolderListSize(Integer userId,String email) {
 		return messageFolderRepository.findByUserIdStatusZero(userId,email);
+	}
+
+	@Override
+	public List<MessageFolder> getSendItems(Integer userId, String email) {
+		// TODO Auto-generated method stub
+		return messageFolderRepository.findByIdSendItems(userId,email);
 	}
 
 }

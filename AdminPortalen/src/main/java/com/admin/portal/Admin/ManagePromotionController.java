@@ -14,6 +14,7 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,18 +28,19 @@ import org.springframework.web.multipart.MultipartFile;
 import com.admin.portal.Common.CommonController;
 import com.admin.portal.Common.Email;
 import com.admin.portal.Common.GenericResponse;
-import com.admin.portal.Model.Article;
 import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Model.Notifications;
 import com.admin.portal.Model.Promotions;
 import com.admin.portal.Model.User;
-import com.admin.portal.Model.UserRoles;
 
 @Controller
 @RequestMapping("/admin")
 public class ManagePromotionController extends CommonController{
 
 	private static final Logger logger = LoggerFactory.getLogger(ManagePromotionController.class);
+	
+	@Value("${EmailContactus}")
+	private String contactus;
 	
 	@Autowired
 	ServletContext context;

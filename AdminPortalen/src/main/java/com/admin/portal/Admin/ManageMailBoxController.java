@@ -49,6 +49,8 @@ public class ManageMailBoxController extends CommonController {
 		model.addAttribute("folderssize", folderssize);
 		logger.info("folders size::"+folders.size());
 		
+		model.addAttribute("page", "mailBox");
+		
         return "admin/mailBox";
     }	  
 	
@@ -108,4 +110,27 @@ public class ManageMailBoxController extends CommonController {
 			
 	        return response;
 	    }	
+	 
+	 
+	 
+	 @RequestMapping(value="/sentItems", method = RequestMethod.GET)
+	    public String sentItems(Model model,Principal principal) {
+			logger.info("mail box page");
+		 	String loggedUser=principal.getName();
+			User user=userService.getUserByName(loggedUser);
+			List<Notifications> nlist=articleService.getNotificationById(user.getUserId());
+			
+			logger.info("Notification List::"+nlist.size());
+		 	model.addAttribute("nlist", nlist);
+			model.addAttribute("user", user);
+			
+			List<MessageFolder> folders=inboxService.getSendItems(user.getUserId(),user.getEmail());
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folders", folders);
+			model.addAttribute("folderssize", folderssize);
+			logger.info("folders size::"+folders.size());
+			
+			model.addAttribute("page", "sentItems");
+	        return "admin/sentItems";
+	    }	  
 }

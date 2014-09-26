@@ -15,7 +15,7 @@
 										style='font-size: 16px; font-weight: normal; line-height: 22px; margin: 0 0 11px 0;'>Dear, <span style='color:#3c8dbc'>${user.username}</span></h1>
 										<div style='font-size: 12px; line-height: 16px; margin: 0 0 8px 0;'>
 											<br/>
-											<p> Congratulation !, You created  an new article  &nbsp;<span style='color:#3c8dbc'> "${article.articleTitle}"</span> &nbsp; Successfully. </p><br/>
+											<p> Congratulation !, You created  an new promotion  &nbsp;<span style='color:#3c8dbc'> "${promotions.title}"</span> &nbsp; Successfully. </p><br/>
 										    </div>
 										<br/>
 											Thanks &amp; Regards<br/><br/>

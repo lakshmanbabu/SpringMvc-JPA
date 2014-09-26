@@ -46,11 +46,11 @@
                             <div style="margin-top: 15px;">
                                 <ul class="nav nav-pills nav-stacked">
                                     <li class="header">Folders</li>
-                                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox (${folderssize.size()})</a></li>
-                                    <li><a href="#"><i class="fa fa-pencil-square-o"></i> Drafts</a></li>
-                                    <li><a href="#"><i class="fa fa-mail-forward"></i> Sent</a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i> Starred</a></li>
-                                    <li><a href="#"><i class="fa fa-folder"></i> Junk</a></li>
+                                    <li class="active"><a href="${contextPath}/admin/mailBox"><i class="fa fa-inbox"></i> Inbox (${folderssize.size()})</a></li>
+                                    <!-- <li><a href="#"><i class="fa fa-pencil-square-o"></i> Drafts</a></li> -->
+                                    <li><a href="${contextPath}/admin/sentItems"><i class="fa fa-mail-forward"></i> Sent</a></li>
+                                   <!--  <li><a href="#"><i class="fa fa-star"></i> Starred</a></li>
+                                    <li><a href="#"><i class="fa fa-folder"></i> Junk</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
 
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
 
-                            <button type="submit" class="btn btn-primary pull-left" onclick="sendComposeMail()"><i class="fa fa-envelope"></i> Send Message</button>
+                            <button type="button" class="btn btn-primary pull-left" onclick="sendComposeMail()"><i class="fa fa-envelope"></i> Send Message</button>
                         </div>
                     </form>
                 </div>
@@ -283,7 +283,7 @@
 			  $.unblockUI();
 			  	 bootbox.alert(data.message,function(){		});
 			  	 $('#compose_Form')[0].reset();
-			  	//location.reload();
+			  	location.reload();
 		     }); 
 	}
 </script>

@@ -109,7 +109,7 @@ public class EmailSender {
 				
 				notifications.setNotifactionMsg(subject);
 				notifications.setCheckMsg("article");
-				email.setFrom(adminContact);
+				email.setFrom(contactus);
 			}
 		};
 		mailSender.send(preparator);
@@ -129,7 +129,7 @@ public class EmailSender {
 				model.put("promotions",promotions);
 				model.put("user",user);
 				message.setTo(email.getMailto());
-				message.setFrom(adminContact);
+				message.setFrom(email.getFrom());
 				//message.setSubject("Article Created Successfully");
 				String subject = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine,"createPromotionSubject.vm", "UTF-8", model);
 				message.setSubject(subject);
@@ -143,7 +143,7 @@ public class EmailSender {
 				
 				notifications.setNotifactionMsg(subject);
 				notifications.setCheckMsg("promote");
-				email.setFrom(adminContact);
+				email.setFrom(contactus);
 				}
 			};
 		mailSender.send(preparator);
