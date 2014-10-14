@@ -7,10 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mail box</title>
+
 </head>
 <body>
-<%--  <link href="${contextPath}/resources/css/adminInbox" rel="stylesheet" type="text/css" /> --%>
-
+ <style type="text/css">
+ #messageTitle{
+ margin-left: 15px;
+ }
+ </style>
+  <%-- <link rel="stylesheet" href="${contextPath}/resources/css/inbox-min.css" />  --%>
+  
 <div class="wrapper row-offcanvas row-offcanvas-left">
           <!-- Right side column. Contains the navbar and content of the page -->
 	<aside class="right-side">
@@ -27,11 +33,14 @@
             </section>
 
 	<!-- Main content -->
+
 	<section class="content">
 	   
-	    <div class="mailbox row">
+	     <div class="mailbox row">
 	        <div class="col-xs-12">
              <div class="box box-solid">
+             <div class="pad margin no-print" id="paging_container5">
+             <div  class="content1">
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-3 col-sm-4" style="width: 23%;">
@@ -87,55 +96,72 @@
                                     </form>
                                 </div>
                             </div>
-
-                            <div class="table-responsive">
+						
+						 
+                            <div class="table-responsive" id="replaceMessageBody">
                                 <!-- THE MESSAGES -->
                                 <table class="table table-mailbox">
-                                <c:forEach items="${folders}" var="folders" varStatus="status">
-                                   <c:choose>
-                                   <c:when test="${folders.status == 0}">
-                                    <tr class="unread">
-                                        <td class="small-col"><input type="checkbox" /></td>
-                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                        <td class="name"><a href="javascript:void(0);" onclick="UpdateMessage('${folders.id}')">${folders.senderEmail}</a></td>
-                                        <td class="subject"><a href="javascript:void(0);" onclick="UpdateMessage('${folders.id}')">${folders.message.subject}</a></td>
-                                        <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="time" dateStyle="MEDIUM" />
-                                        <td class="time">${sentDate}</td>
-                                    </tr>
-                                    </c:when>
-                                    <c:otherwise>
-                                     <tr >
-                                        <td class="small-col"><input type="checkbox" /></td>
-                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                        <td><a href="javascript:void(0);" >${folders.senderEmail}</a></td>
-                                        <td class="subject"><a href="javascript:void(0);">${folders.message.subject}</a></td>
-                                        <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="time" dateStyle="MEDIUM" />
-                                        <td class="time">${sentDate}</td>
-                                    </tr>
-                                    </c:otherwise>
-                                    </c:choose>
-                                    </c:forEach>
+                                <c:set value="${folders.size()}" var="folderSize"/>
+                                 <c:choose>
+                                   <c:when test="${folderSize ge 1}">
+		                               <c:forEach items="${folders}" var="folders" varStatus="status">
+		                                <c:choose>
+		                                  <c:when test="${folders.status == 0}">
+		                                   <tr class="unread">
+		                                       <td class="small-col"><input type="checkbox" /></td>
+		                                       <td class="small-col"><i class="fa fa-star-o"></i></td>
+		                                       <td class="name"><a href="${contextPath}/admin/viewMsg/${folders.id}" >${folders.senderEmail}</a></td>
+		                                       <td class="subject"><a href="${contextPath}/admin/viewMsg/${folders.id}">${folders.message.subject}</a></td>
+		                                       <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="both" dateStyle="MEDIUM" />
+		                                       <td class="time">${sentDate}</td>
+		                                   </tr>
+		                                   </c:when>
+		                                   <c:otherwise>
+		                                   <tr >
+		                                       <td class="small-col"><input type="checkbox" /></td>
+		                                       <td class="small-col"><i class="fa fa-star-o"></i></td>
+		                                       <td><a href="${contextPath}/admin/viewMsg/${folders.id}" >${folders.senderEmail}</a></td>
+		                                       <td class="subject"><a href="${contextPath}/admin/viewMsg/${folders.id}">${folders.message.subject}</a></td>
+		                                       <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="both" dateStyle="MEDIUM" />
+		                                       <td class="time">${sentDate}</td>
+		                                   </tr> 
+		                                  </c:otherwise>
+		                                   </c:choose>
+		                                   </c:forEach>
+		                                   
+		                                </c:when>
+		                                 <c:otherwise>
+		                                 	<tr >
+		                                 	<td colspan="5" align="center" style="color: #3c8dbc;"> This is no messages  !...</td>
+		                                 	</tr>
+		                                 </c:otherwise>
+		                                </c:choose>   
                                     
                                 </table>
                             </div>
+                          
                         </div>
                     </div>
                 </div>
-                <div class="box-footer clearfix">
+                <div class="box-footer clearfix" id="msgCount">
                     <div class="pull-right">
-                        <small>Showing 1-12/1,240</small>
-                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
-                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-right"></i></button>
+                         <div class="page_navigation" ></div>
                     </div>
                 </div>
+                </div>
+            </div>
+            
             </div>
         </div>
-    </div>
+    </div> 
    
         </section>
+        
     </aside>
 </div>
 
+       
+				
         <!-- COMPOSE MESSAGE MODAL -->
         <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -144,7 +170,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
                     </div>
-                    <form id="compose_Form">
+                    <form id="compose_Form" method="post" >
                         <div class="modal-body">
                             <div class="form-group">
                                 <div class="input-group">
@@ -173,29 +199,90 @@
                             <div class="form-group">
                                 <textarea name="body" id="body" class="form-control" placeholder="Message" style="height: 120px;"></textarea>
                             </div>
-                           <!--  <div class="form-group">
-                                <div class="btn btn-success btn-file">
-                                    <i class="fa fa-paperclip"></i> Attachment
-                                    <input type="file" name="attachment"/>
+                            <div class="form-group">
+                                 <div class="btn btn-success btn-file">
+                                    <i class="fa fa-paperclip"></i> Attachment 
+                                   <!-- <table id="fileTable" width="100%">
+                                   <tr>
+									   <td width="28%">
+											<label for="company" class="control-label col-lg-3 control-label required">
+													Documents </label> : </td>
+										<td><input  class="form-control" type="file" name="files[0]" required="required"/></td>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td>
+											<a id="addFile" href="javascript:void(0)"><span class="btn btn-success btn-file NewPDFLink">Add Files</span></a>
+										</td>
+									</tr>
+                                   </table> -->
                                 </div>
                                 <p class="help-block">Max. 32MB</p>
-                            </div> -->
+                            </div>
 
                         </div>
                         <div class="modal-footer clearfix">
 
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
 
-                            <button type="button" class="btn btn-primary pull-left" onclick="sendComposeMail()"><i class="fa fa-envelope"></i> Send Message</button>
+                            <button type="submit" class="btn btn-primary pull-left" ><i class="fa fa-envelope"></i> Send Message</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> 
-
  <script type="text/javascript">
+ $(function(){
+	
+	/*  $('#addFile').click(function() {
+			var rowCount = $('#fileTable tr').length;
+			
+			$('#fileTable tbody').append(
+					'<tr><td width="28%"><td>'+
+					'	<input class="form-control" type="file" name="files['+ rowCount +']" />'+
+					'</td></tr>');
+		}); */
+	 
+		$('#paging_container5').pajinate({
+			num_page_links_to_display : 3,
+			items_per_page : 5	
+		});
+		
+	 $( "#compose_Form").validate({
+			errorClass:'InputError',
+			validClass:'InputSuccess',
+			rules: {
+				receiverEmail:{required:true},
+				},
+				
+			messages: {			
+				receiverEmail: {
+					required: "Please Enter the To Email"
+				},
+				
+			},
+			submitHandler: function(form) {			 
+				contextPath = $('#contextPath').val();
+				$('#compose-modal').modal('hide');
+				 $.blockUI({ 
+			 		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
+			 		css: { 
+			             border: 'none',     	               
+			             '-webkit-border-radius': '10px', 
+			             '-moz-border-radius': '10px',
+			         } 
+			 	}); 
+				  $.post(contextPath+"/admin/sendComposeMail",$('#compose_Form').serialize(), function(data) {
+					  $.unblockUI();
+					  	 bootbox.alert(data.message,function(){		});
+					  	 $('#compose_Form')[0].reset();
+					  	location.reload();
+				     }); 
+				  
+				}
+			});
+	 
+ });
+ 
  var contextPath;
     $(function() {
     	ShowTime();
@@ -245,47 +332,10 @@
         //Initialize WYSIHTML5 - text editor
         $("#body").wysihtml5();
     });
-            
  
- function UpdateMessage(messageId){
-	
-	contextPath = $('#contextPath').val();
-	
-	 $.blockUI({ 
- 		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
- 		css: { 
-             border: 'none',     	               
-             '-webkit-border-radius': '10px', 
-             '-moz-border-radius': '10px',
-         } 
- 	}); 
-	  $.post(contextPath+"/admin/updateMessageFolder",{messageId:messageId}, function(data) {
-		  $.unblockUI();
-		  	 bootbox.alert(data.message,function(){		});
-		  	location.reload();
-	      }); 
 
-	 
- }
  
- function sendComposeMail(){
-		contextPath = $('#contextPath').val();
-		$('#compose-modal').modal('hide');
-		 $.blockUI({ 
-	 		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
-	 		css: { 
-	             border: 'none',     	               
-	             '-webkit-border-radius': '10px', 
-	             '-moz-border-radius': '10px',
-	         } 
-	 	}); 
-		  $.post(contextPath+"/admin/sendComposeMail",$('#compose_Form').serialize(), function(data) {
-			  $.unblockUI();
-			  	 bootbox.alert(data.message,function(){		});
-			  	 $('#compose_Form')[0].reset();
-			  	location.reload();
-		     }); 
-	}
+
 </script>
 
 </body>

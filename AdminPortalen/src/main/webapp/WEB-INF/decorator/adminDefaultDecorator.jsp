@@ -12,35 +12,80 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title><sitemesh:write property='title'/></title>
 <meta name="keywords" content="wedding store, free web templates, free css templates" />
-<meta name="description" content="Wedding Store is a free web template for everyone. Download this template from templatemo.com" />
+
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,900,300italic,400italic,700italic,900italic|Signika:400,700,300,600" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700" rel="stylesheet" type="text/css">
 
-<!-- bootstrap 3.0.2 -->
-  <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <!-- font Awesome -->
-  <link href="${contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <!-- Ionicons -->
-  <link href="${contextPath}/resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-  <!-- Morris chart -->
-  <link href="${contextPath}/resources/css/morris/morris.css" rel="stylesheet" type="text/css" />
-  <!-- jvectormap -->
-  <link href="${contextPath}/resources/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-  <!-- fullCalendar -->
-  <link href="${contextPath}/resources/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
-   <link href="${contextPath}/resources/css/iCheck/all.css" rel="stylesheet" type="text/css" />
-  <!-- Daterange picker -->
-  <link href="${contextPath}/resources/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link href="${contextPath}/resources/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
-  <!-- Theme style -->
-  <link href="${contextPath}/resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
- <link href="${contextPath}/resources/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
- <link rel="stylesheet" href="${contextPath}/resources/css/jquery-ui.css" /> 
- <style type="text/css">
+ <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+ <link href="${contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+ <link href="${contextPath}/resources/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+ <link href="${contextPath}/resources/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+  <link href="${contextPath}/resources/css/iCheck/all.css" rel="stylesheet" type="text/css" />
+ <link href="${contextPath}/resources/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+ <link href="${contextPath}/resources/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+ <link href="${contextPath}/resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="${contextPath}/resources/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="${contextPath}/resources/css/jquery-ui.css" /> 
+<link type="text/css" rel="stylesheet" href="${contextPath}/resources/css/Paginationstyles.css" />
 
+ <!-- jQuery 2.0.2 -->
+<!--   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="${contextPath}/resources/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+  <script src="${contextPath}/resources/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+  <script src="${contextPath}/resources/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+  <script src="${contextPath}/resources/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+  <script src="${contextPath}/resources/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+  <script src="${contextPath}/resources/js/AdminLTE/app.js" type="text/javascript"></script>
+  <script src="${contextPath}/resources/js/AdminLTE/dashboard.js" type="text/javascript"></script>     
+  <script type="text/javascript" src="${contextPath}/resources/js/common.js"></script> 
+  <script src="${contextPath}/resources/js/AdminLTE/demo.js" type="text/javascript"></script>
+  <script type="text/javascript" src="${contextPath}/resources/js/bootbox.js"></script>
+  <script type="text/javascript" src="${contextPath}/resources/js/jquery.blockUI.js"></script>
+  <script src="${contextPath}/resources/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+  <script src="${contextPath}/resources/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+  <script type="text/javascript" src="${contextPath}/resources/js/jquery-ui.js"></script>
+  <script type="text/javascript" src="${contextPath}/resources/js/jquery.pajinate.js"></script>
+  <script type="text/javascript" src="${contextPath}/resources/js/countries.js"></script>
+ <script type="text/javascript" src="${contextPath}/resources/js/jquery.validate.js"></script>
+ 
+ 
+<!------------- Charts ------------->
+<script type="text/javascript" src="${contextPath}/resources/js/amcharts.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/serial.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/light.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/pie.js"></script>
+<!------------- amchart google locations ------------->
+<!-- <script type="text/javascript" src="http://www.amcharts.com/lib/3/maps/js/worldLow.js"></script> -->
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+<style type="text/css">
+.InputError{
+color: red;
+}
 
 </style>
+
+
+<script type="text/javascript">
+
+/* window.onload = function(){date()}, setInterval(function(){date()}, 1000);
+
+function date() {
+    var now = new Date(),
+        now = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+    $('#time').html(now);
+} */
+$(document).ready(function() {
+	ShowTime();
+	});
+function ShowTime() {
+	var dt = new Date();
+	document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+	window.setTimeout("ShowTime()", 1000); // Here 1000(milliseconds) means one 1 Sec  
+}
+</script>
 </head>
 <body  class="skin-blue">
 
@@ -364,9 +409,18 @@
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
-			           <div class="col-xs-8" style=" font-weight:bold"><br/>
-			            <a title="Calendar" href="javascript:void(0);" current-time="'h:mm:ss a'"  id="time" style="color: #2a6496; font-size: 16px;"></a>
-			           </div>
+			           <div class="panel panel-default hidden-xs">
+				            <div class="v-center">
+				              <div class="col-xs-8">
+				                <h1 class="text-center margin-top-10"><a current-time="'h:mm:ss a'" id="time" href="javascript:void(0);" title="Calendar" style="color: #2a6496; font-size: 15px;">2:14:20 PM</a></h1>
+				              </div>
+				              <div class="col-xs-4 bg-info">
+				                <h1 class="margin-bottom-15 margin-top-15 text-center">
+				                 <span class="fa fa-clock-o fa-2x" style="color: #2a6496; font-size: 23px;"></span>
+				                </h1>
+				              </div>
+				          </div>
+				      </div>
 					         
                     </div>
                     <!-- search form -->
@@ -391,129 +445,70 @@
                                 <small class="badge pull-right bg-yellow">${folderssize.size()}</small>
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="${contextPath}/admin/viewUserDetail">
-                                <i class="fa fa-users"></i> <span>View Users</span>
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Application Users</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="${contextPath}/admin/createUser"><i class="fa fa-user"></i> <span>Create NewUsers</span></a></li>
+                                <li><a href="${contextPath}/admin/viewUserDetail"><i class="fa fa-users"></i> <span>View Users</span></a></li>
+                                <li><a href="${contextPath}/admin/viewUsage"><i class="fa fa-signal"></i> View Usage Status</a></li>
+                            </ul>
                         </li>
-                        <li class="active">
-                            <a href="${contextPath}/admin/createUser">
-                                <i class="fa fa-user"></i> <span>Create NewUsers</span>
+                      
+                      <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Manage Articles</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="${contextPath}/admin/createArticle"><i class="fa fa-tasks"></i> <span>Create Articles</span></a></li>
+                                <li><a href="${contextPath}/admin/viewArticle"><i class="fa fa-th-list"></i> <span>View All Articles</span></a></li>
+                            </ul>
                         </li>
-                        <li class="active">
-                            <a href="${contextPath}/admin/createArticle">
-                                <i class="fa fa-tasks"></i> <span>Create Articles</span>
+                      
+                       <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Manage AD'S</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="${contextPath}/admin/createPromotion"><i class="fa fa-meh-o"></i> <span>New Ad's</span></a></li>
+                                <li><a href="${contextPath}/admin/viewPostedAd"><i class="fa fa-list-alt"></i> <span>Posted Promotions/Ad's</span></a></li>
+                            </ul>
                         </li>
-                        <li class="active">
-                            <a href="${contextPath}/admin/viewArticle">
-                                <i class="fa fa-th-list"></i> <span>View All Articles</span>
+                     	<li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Manage Notifications</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="${contextPath}/admin/viewNotifications"><i class="fa fa-warning"></i> <span>Notifications</span></a></li>
+                            </ul>
                         </li>
-                        <li class="active">
-                            <a href="${contextPath}/admin/createPromotion">
-                                <i class="fa fa-meh-o"></i> <span>Posting Ad's</span>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Manage Categories</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="${contextPath}/admin/manageCategory"><i class="fa fa-flag-checkered"></i> <span>Categories</span></a></li>
+                            </ul>
                         </li>
-                        <li class="active">
-                            <a href="${contextPath}/admin/viewPostedAd">
-                                <i class="fa fa-list-alt"></i> <span>Posted Promotions</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="${contextPath}/admin/viewNotifications">
-                                <i class="fa fa-warning"></i> <span>Manage Notifications</span>
-                            </a>
-                        </li>
-                         <li class="active">
-                            <a href="${contextPath}/admin/manageCategory">
-                                <i class="fa fa-flag-checkered"></i> <span>Manage Categories</span>
-                            </a>
-                        </li>
+                        
+                       
                           <li class="active">
                             <a href="${contextPath}/admin/manageMap">
                                 <i class="fa fa-globe"></i> <span>Manage Map</span>
                             </a>
                         </li>
-                        <%-- <li>
-                            <a href="${contextPath}/resources/htmlpages/widgets.html">
-                                <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <span>Charts</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${contextPath}/resources/htmlpages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-laptop"></i>
-                                <span>UI Elements</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${contextPath}/resources/htmlpages/UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/UI/buttons.html"><i class="fa fa-angle-double-right"></i> Buttons</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/UI/sliders.html"><i class="fa fa-angle-double-right"></i> Sliders</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/UI/timeline.html"><i class="fa fa-angle-double-right"></i> Timeline</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${contextPath}/resources/htmlpages/forms/general.html"><i class="fa fa-angle-double-right"></i> General Elements</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/forms/advanced.html"><i class="fa fa-angle-double-right"></i> Advanced Elements</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-table"></i> <span>Tables</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${contextPath}/resources/htmlpages/tables/simple.html"><i class="fa fa-angle-double-right"></i> Simple tables</a></li>
-                                <li><a href="${contextPath}/resources/htmlpages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="${contextPath}/resources/htmlpages/calendar.html">
-                                <i class="fa fa-calendar"></i> <span>Calendar</span>
-                                <small class="badge pull-right bg-red">3</small>
-                            </a>
-                        </li>
-                         <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-folder"></i> <span>Examples</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="javascript:void(0);"><i class="fa fa-angle-double-right"></i> Invoice</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-angle-double-right"></i> Register</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-angle-double-right"></i> Lockscreen</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-angle-double-right"></i> 404 Error</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>
-                            </ul>
-                        </li>
-                         <li>
-                            <a href="<c:url value='/admin/j_spring_security_logout' />">
-                                <i class="fa fa-power-off"> </i> <span>Sign out</span> 
-                            </a>
-                        </li> --%>
+                       
                     </ul>
                 </section>
             </aside> 
@@ -526,75 +521,8 @@
 	
 	<sitemesh:write property="footer"/>
 	
-	 <!-- All  Jquery Related js files -->
 	 
-  <!-- jQuery 2.0.2 -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  <!-- jQuery UI 1.10.3 -->
-<%-- <script src="${contextPath}/resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script> --%>
-
-  <!-- Bootstrap -->
-  <script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
-  <!-- Morris.js charts -->
- <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-  <script src="${contextPath}/resources/js/plugins/morris/morris.min.js" type="text/javascript"></script>
-  <!-- Sparkline -->
-  <script src="${contextPath}/resources/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
-  <!-- jvectormap -->
-  <script src="${contextPath}/resources/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-  <script src="${contextPath}/resources/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
-  <!-- fullCalendar -->
-  <script src="${contextPath}/resources/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="${contextPath}/resources/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
-  <!-- daterangepicker -->
-  <script src="${contextPath}/resources/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-  <!-- Bootstrap WYSIHTML5 -->
-  <script src="${contextPath}/resources/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
-  <!-- iCheck -->
-  <script src="${contextPath}/resources/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-
-  <!-- AdminLTE App -->
-  <script src="${contextPath}/resources/js/AdminLTE/app.js" type="text/javascript"></script>
-  
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="${contextPath}/resources/js/AdminLTE/dashboard.js" type="text/javascript"></script>     
-  
-  <!-- AdminLTE for demo purposes -->
-  <script src="${contextPath}/resources/js/AdminLTE/demo.js" type="text/javascript"></script>
-  <script type="text/javascript" src="${contextPath}/resources/js/bootbox.js"></script>
-  <script type="text/javascript" src="${contextPath}/resources/js/jquery.blockUI.js"></script>
-  <script src="${contextPath}/resources/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-  <script src="${contextPath}/resources/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-  <script type="text/javascript" src="${contextPath}/resources/js/jquery-ui.js"></script>
-  <script src="${contextPath}/resources/js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
-  <script src="${contextPath}/resources/js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
-  <script src="${contextPath}/resources/js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
-  <script type="text/javascript" src="${contextPath}/resources/js/jquery.pajinate.js"></script>
-  
-
-<%-- 
- <script type="text/javascript" src="${contextPath}/resources/js/jquery-1.10.2.min.js"></script>
-<link rel="stylesheet" href="${contextPath}/resources/admin/css/demo_page.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="${contextPath}/resources/admin/css/demo_table.css" type="text/css" media="screen" /> --%>
-<script type="text/javascript">
-
-/* window.onload = function(){date()}, setInterval(function(){date()}, 1000);
-
-function date() {
-    var now = new Date(),
-        now = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
-    $('#time').html(now);
-} */
-$(document).ready(function() {
-	ShowTime();
-	});
-	function ShowTime() {
-	var dt = new Date();
-	document.getElementById("time").innerHTML = dt.toLocaleTimeString();
-	window.setTimeout("ShowTime()", 1000); // Here 1000(milliseconds) means one 1 Sec  
-	}
-</script>
+ 
 	
 </body>
 </html>

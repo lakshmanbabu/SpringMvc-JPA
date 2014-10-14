@@ -9,10 +9,7 @@
 <title>posted Promotes</title>
 </head>
 <body  class="skin-blue">
-<link type="text/css" rel="stylesheet" href="${contextPath}/resources/css/Paginationstyles.css" />
-<style type="text/css">
 
-</style>
 <div class="wrapper row-offcanvas row-offcanvas-left">
 
             <!-- Right side column. Contains the navbar and content of the page -->
@@ -76,10 +73,6 @@
          </aside>
    </div>
    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<%--  <script src="${contextPath}/resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script> --%>
- <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-    
  <script type="text/javascript">
  var contextPath;
  $(function(){
@@ -102,7 +95,7 @@
 	});
  </script>
  
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
   window.fbAsyncInit = function() {
     FB.init({appId: 'YOUR_APP_ID_HERE', status: true, cookie: true,
              xfbml: true});
@@ -113,6 +106,6 @@
       '//connect.facebook.net/en_US/all.js';
     document.getElementById('fb-root').appendChild(e);
   }());
-</script>  
+</script>   -->
 </body>
 </html>

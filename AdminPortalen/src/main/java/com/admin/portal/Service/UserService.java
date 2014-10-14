@@ -2,6 +2,7 @@ package com.admin.portal.Service;
 
 import java.util.List;
 
+import com.admin.portal.Common.UserDto;
 import com.admin.portal.Model.User;
 import com.admin.portal.Model.UserRoles;
 
@@ -24,5 +25,11 @@ public interface UserService {
 	public void updateUserRole(UserRoles userRoles);
 
 	public UserRoles getUserRoleById(Integer userId);
+
+	public List<User> countApplicationAdmins();
+
+	public List<User> countRegistedUsers();
+
+	public List<UserDto> countNewRegisteredCustomersDaily();
 
 }

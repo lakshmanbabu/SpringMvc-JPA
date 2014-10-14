@@ -86,7 +86,7 @@
                                 </div>
                             </div>
 
-                            <div class="table-responsive">
+                            <div class="table-responsive" id="replaceMessageBody">
                                 <!-- THE MESSAGES -->
                                 <table class="table table-mailbox">
                                 <c:forEach items="${folders}" var="folders" varStatus="status">
@@ -95,9 +95,9 @@
                                     <tr class="unread">
                                         <td class="small-col"><input type="checkbox" /></td>
                                         <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                        <td class="name"><a href="javascript:void(0);" onclick="UpdateMessage('${folders.id}')">${folders.receiverEmail}</a></td>
-                                        <td class="subject"><a href="javascript:void(0);" onclick="UpdateMessage('${folders.id}')">${folders.message.subject}</a></td>
-                                        <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="time" dateStyle="MEDIUM" />
+                                        <td class="name"><a href="${contextPath}/admin/viewMsg/${folders.id}" >${folders.receiverEmail}</a></td>
+                                        <td class="subject"><a href="${contextPath}/admin/viewMsg/${folders.id}" >${folders.message.subject}</a></td>
+                                        <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="both" dateStyle="MEDIUM" />
                                         <td class="time">${sentDate}</td>
                                     </tr>
                                     </c:when>
@@ -105,9 +105,9 @@
                                      <tr >
                                         <td class="small-col"><input type="checkbox" /></td>
                                         <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                        <td><a href="javascript:void(0);" >${folders.senderEmail}</a></td>
-                                        <td class="subject"><a href="javascript:void(0);">${folders.message.subject}</a></td>
-                                        <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="time" dateStyle="MEDIUM" />
+                                        <td><a href="${contextPath}/admin/viewMsg/${folders.id}" >${folders.senderEmail}</a></td>
+                                        <td class="subject"><a href="${contextPath}/admin/viewMsg/${folders.id}" >${folders.message.subject}</a></td>
+                                        <fmt:formatDate value="${folders.message.sentDateTime}" var="sentDate" type="both" dateStyle="MEDIUM" />
                                         <td class="time">${sentDate}</td>
                                     </tr>
                                     </c:otherwise>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-footer clearfix">
+                <div class="box-footer clearfix" id="msgCount">
                     <div class="pull-right">
                         <small>Showing 1-12/1,240</small>
                         <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
@@ -134,6 +134,7 @@
     </aside>
 </div>
 
+	
         <!-- COMPOSE MESSAGE MODAL -->
         <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -184,17 +185,56 @@
 
                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
 
-                            <button type="submit" class="btn btn-primary pull-left" onclick="sendComposeMail()"><i class="fa fa-envelope"></i> Send Message</button>
+                            <button type="submit" class="btn btn-primary pull-left" ><i class="fa fa-envelope"></i> Send Message</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> 
 
  <script type="text/javascript">
+ 
  var contextPath;
+ 
+ $(function(){
+		
+	 $( "#compose_Form").validate({
+			errorClass:'InputError',
+			validClass:'InputSuccess',
+			rules: {
+				receiverEmail:{required:true},
+				},
+				
+			messages: {			
+				receiverEmail: {
+					required: "Please Enter the To Email"
+				},
+				
+			},
+			submitHandler: function(form) {			 
+				contextPath = $('#contextPath').val();
+				$('#compose-modal').modal('hide');
+				 $.blockUI({ 
+			 		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
+			 		css: { 
+			             border: 'none',     	               
+			             '-webkit-border-radius': '10px', 
+			             '-moz-border-radius': '10px',
+			         } 
+			 	}); 
+				  $.post(contextPath+"/admin/sendComposeMail",$('#compose_Form').serialize(), function(data) {
+					  $.unblockUI();
+					  	 bootbox.alert(data.message,function(){		});
+					  	 $('#compose_Form')[0].reset();
+					  	location.reload();
+				     }); 
+				  
+				}
+			});
+	 
+ });
+ 
     $(function() {
     	ShowTime();
     	
@@ -245,45 +285,6 @@
     });
             
  
- function UpdateMessage(messageId){
-	
-	contextPath = $('#contextPath').val();
-	
-	 $.blockUI({ 
- 		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
- 		css: { 
-             border: 'none',     	               
-             '-webkit-border-radius': '10px', 
-             '-moz-border-radius': '10px',
-         } 
- 	}); 
-	  $.post(contextPath+"/admin/updateMessageFolder",{messageId:messageId}, function(data) {
-		  $.unblockUI();
-		  	 bootbox.alert(data.message,function(){		});
-		  	location.reload();
-	      }); 
-
-	 
- }
- 
- function sendComposeMail(){
-		contextPath = $('#contextPath').val();
-		$('#compose-modal').modal('hide');
-		 $.blockUI({ 
-	 		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
-	 		css: { 
-	             border: 'none',     	               
-	             '-webkit-border-radius': '10px', 
-	             '-moz-border-radius': '10px',
-	         } 
-	 	}); 
-		  $.post(contextPath+"/admin/sendComposeMail",$('#compose_Form').serialize(), function(data) {
-			  $.unblockUI();
-			  	 bootbox.alert(data.message,function(){		});
-			  	 $('#compose_Form')[0].reset();
-			  	location.reload();
-		     }); 
-	}
 </script>
 
 </body>

@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.admin.portal.Common.CommonController;
 import com.admin.portal.Common.Email;
 import com.admin.portal.Common.GenericResponse;
+import com.admin.portal.Common.UserDto;
 import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Model.Notifications;
 import com.admin.portal.Model.User;
@@ -268,4 +269,26 @@ public class ManageUserController extends CommonController{
 			return "admin/adminProfile";
 		}	
 		
+		
+		@RequestMapping(value="/viewUsage")
+		public String ViewUsage(HttpServletRequest request,Model model){
+			model.addAttribute("manageUsers",true);
+			model.addAttribute("userMangerJs",true);
+			logger.info("admin ViewUsage page");
+			List<User> adminUsers=userService.countApplicationAdmins();
+			model.addAttribute("adminUsers",adminUsers );
+			List<User> appUser=userService.countRegistedUsers();
+			model.addAttribute("appUser",appUser );
+			
+			return "admin/userUsageStatus";
+			
+		}
+		
+
+		@RequestMapping(value = "/getListOfCustomers",method={RequestMethod.GET})
+		public  @ResponseBody List<UserDto> getListOfCustomers() {
+			logger.info("admin getallUsers by Date");	
+			return userService.countNewRegisteredCustomersDaily();
+
+		}
 }

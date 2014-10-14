@@ -63,7 +63,7 @@ $(function() {
         "RU": 3000 //Russia
     };
     //World map by jvectormap
-    $('#world-map').vectorMap({
+   /* $('#world-map').vectorMap({
         map: 'world_mill_en',
         backgroundColor: "#fff",
         regionStyle: {
@@ -86,10 +86,10 @@ $(function() {
             if (typeof visitorsData[code] != "undefined")
                 el.html(el.html() + ': ' + visitorsData[code] + ' new visitors');
         }
-    });
+    });*/
 
     //Sparkline charts
-    var myvalues = [15, 19, 20, -22, -33, 27, 31, 27, 19, 30, 21];
+   /* var myvalues = [15, 19, 20, -22, -33, 27, 31, 27, 19, 30, 21];
     $('#sparkline-1').sparkline(myvalues, {
         type: 'bar',
         barColor: '#00a65a',
@@ -130,7 +130,7 @@ $(function() {
         barColor: '#00a65a',
         negBarColor: "#f56954",
         height: '20px'
-    });
+    });*/
 
     //Date for the calendar events (dummy data)
     var date = new Date();
@@ -209,7 +209,7 @@ $(function() {
 
     /* Morris.js Charts */
     // Sales chart
-    var area = new Morris.Area({
+ /*   var area = new Morris.Area({
         element: 'revenue-chart',
         resize: true,
         data: [
@@ -229,9 +229,9 @@ $(function() {
         labels: ['Item 1', 'Item 2'],
         lineColors: ['#a0d0e0', '#3c8dbc'],
         hideHover: 'auto'
-    });
+    });*/
     //Donut Chart
-    var donut = new Morris.Donut({
+    /*var donut = new Morris.Donut({
         element: 'sales-chart',
         resize: true,
         colors: ["#3c8dbc", "#f56954", "#00a65a"],
@@ -265,7 +265,7 @@ $(function() {
     $('.box ul.nav a').on('shown.bs.tab', function(e) {
         area.redraw();
         donut.redraw();
-    });
+    });*/
 
 
     /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) */

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.admin.portal.Common.UserDto;
 import com.admin.portal.Dao.UserDao;
 import com.admin.portal.Model.User;
 import com.admin.portal.Model.UserRoles;
@@ -76,6 +77,23 @@ public class UserServiceImpl implements UserService{
 	public UserRoles getUserRoleById(Integer userId) {
 		
 		return userRoleRepository.findByIdAndFetchRolesEagerly(userId);
+	}
+
+	@Override
+	public List<User> countApplicationAdmins() {
+		return userRepository.countApplicationAdmins();
+	}
+
+	@Override
+	public List<User> countRegistedUsers() {
+		// TODO Auto-generated method stub
+		return userRepository.countRegistedUsers();
+	}
+
+	@Override
+	public List<UserDto> countNewRegisteredCustomersDaily() {
+		// TODO Auto-generated method stub
+		return userDao.countNewRegisteredCustomersDaily();
 	}
 
 	

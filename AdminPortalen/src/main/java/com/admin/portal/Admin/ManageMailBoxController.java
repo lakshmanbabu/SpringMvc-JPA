@@ -13,10 +13,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.admin.portal.Common.CommonController;
 import com.admin.portal.Common.Email;
@@ -55,13 +57,35 @@ public class ManageMailBoxController extends CommonController {
     }	  
 	
 	
-	 @RequestMapping(value="/updateMessageFolder", method = RequestMethod.POST)
-    public  @ResponseBody GenericResponse updateMessageFolder(@RequestParam Integer messageId, Model model,Principal principal,HttpServletRequest request,HttpServletResponse response1) {
+	 @RequestMapping(value="/viewMsg/{messageId}", method = RequestMethod.GET)
+    public  String updateMessageFolder(@PathVariable Integer messageId, Model model,final RedirectAttributes redirectAttributes, Principal principal,HttpServletRequest request,HttpServletResponse response1) {
 	
-		 GenericResponse response=new GenericResponse();
-		 
 		 String loggedUser=principal.getName();
 		 User user=userService.getUserByName(loggedUser);
+		 
+		 	List<Notifications> nlist=articleService.getNotificationById(user.getUserId());
+			
+			logger.info("Notification List::"+nlist.size());
+		 	model.addAttribute("nlist", nlist);
+			model.addAttribute("user", user);
+			
+			List<MessageFolder> folderssize=inboxService.getMessageFolderListSize(user.getUserId(),user.getEmail());
+			model.addAttribute("folderssize", folderssize);
+			
+		 MessageFolder folders1=inboxService.getMessageFolderDetail(messageId);
+		 
+		 if(folders1.getStatus()==0){
+			 folders1= updateMessageStatus(messageId,response1);
+		 }
+		 
+		 model.addAttribute("folders", folders1);
+		 
+		return "admin/messageDetails";
+	
+	}
+	 
+	
+	 public MessageFolder updateMessageStatus(Integer messageId, HttpServletResponse response1){
 		 
 		 MessageFolder folders=inboxService.getMessageFolderDetail(messageId);
 		 if(folders!=null){
@@ -72,16 +96,11 @@ public class ManageMailBoxController extends CommonController {
 			folders.getMessage().setMessageFolders(messageFolders);
 			inboxService.saveMessage(folders.getMessage());
 			System.err.println("******Updated ******");
-		 response.setError(false);
-		 response.setMessage("Message Updated Successfully");
 		 }else{
-			 response.setError(true);
-			 response.setMessage("Message some problem ! please check.. ");
 		 }
 		 
-		 return response;
-	
-	}
+		 return folders; 
+	 }
 	 
 	 @RequestMapping(value="/sendComposeMail", method = RequestMethod.POST)
 	    public  @ResponseBody GenericResponse sendComposeMail(@ModelAttribute Message message, Model model,Principal principal,HttpServletRequest request,HttpServletResponse response1) {
@@ -103,6 +122,7 @@ public class ManageMailBoxController extends CommonController {
 				email.setFrom("");
 				
 			}
+			
 			emailSender.sendComposeEmail(message,user,email,request,response1);
 			
 			response.setError(false);
@@ -132,5 +152,14 @@ public class ManageMailBoxController extends CommonController {
 			
 			model.addAttribute("page", "sentItems");
 	        return "admin/sentItems";
-	    }	  
+	    }	
+	 
+	 
+	 @RequestMapping(value="/deleteMailMessage/{folderId}",method=RequestMethod.GET)
+		public String deleteSelectedEducations(@PathVariable("folderId") Integer folderId, Model model,HttpServletRequest request){
+			
+		 	//inboxService.deleteMessageById(folderId);
+		 	
+			return "admin/mailBox";
+		}
 }

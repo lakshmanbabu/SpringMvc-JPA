@@ -10,6 +10,7 @@ import com.admin.portal.Model.Message;
 import com.admin.portal.Model.MessageFolder;
 import com.admin.portal.Repository.InboxRepository;
 import com.admin.portal.Repository.MessageFolderRepository;
+import com.admin.portal.Repository.MessageRepository;
 
 @Service
 @Transactional
@@ -21,6 +22,9 @@ public class InboxServiceImpl implements InboxService {
 	
 	@Autowired
 	MessageFolderRepository  messageFolderRepository;
+	
+	@Autowired
+	MessageRepository  messageRepository;
 	
 	@Override
 	public void saveMessage(Message localMessage) {
@@ -49,5 +53,11 @@ public class InboxServiceImpl implements InboxService {
 		// TODO Auto-generated method stub
 		return messageFolderRepository.findByIdSendItems(userId,email);
 	}
+
+	/*@Override
+	public Message getMessageDetails(Integer id) {
+		// TODO Auto-generated method stub
+		return messageRepository.findByMessageFolderId(id);
+	}*/
 
 }

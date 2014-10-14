@@ -107,8 +107,6 @@
 </div>
   </div>
   
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<%-- <script src="${contextPath}/resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script> --%>
  <script type="text/javascript">
  var contextPath;
  $(function(){

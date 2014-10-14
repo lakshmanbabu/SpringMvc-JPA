@@ -28,6 +28,8 @@ public class MessageFolder implements java.io.Serializable {
 	private String firstName;
 	private String lastName;
 	private User user;
+	private String subject;
+	private String body;
 	
 	public MessageFolder() {
 	}
@@ -98,6 +100,23 @@ public class MessageFolder implements java.io.Serializable {
 		this.user = user;
 	}
 	
+	@Column(name = "subject")
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	@Column(name = "body")
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+	
 	@Transient
 	public String getFirstName() {
 		return firstName;
@@ -114,6 +133,8 @@ public class MessageFolder implements java.io.Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	
 	
 	
 	

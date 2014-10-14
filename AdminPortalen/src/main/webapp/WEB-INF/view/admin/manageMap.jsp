@@ -7,6 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Manage GoogleMap</title>
 </head>
+<body >
+
 <style type="text/css">
 #chartdiv {
 	 width	: 100%;
@@ -99,21 +101,48 @@
 	}	
 
 </style>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+            <aside class="right-side">
+               
+                <section class="content-header">
+                    <h1>
+                       Google Map
+                        <small> service Contacts</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="${contextPath}/admin/adminHome"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">contacts</li>
+                    </ol>
+                </section>
+  				<input type="hidden" id="contextPath" value="${contextPath}"/>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-header">
+                                   <h3 class="box-title">Google Map Contacts</h3> 
+                                </div>
+                                
+                                   <br/><br/>
+                                   <div id="chartdiv"></div>
+                                   
+                            
+                         </div>
+                     </div>
+                 </div>
 
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>   
- <script type="text/javascript" src="http://www.amcharts.com/lib/3/ammap.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+                </section>
+            </aside>
+        </div>
+        
 <script type="text/javascript">
         
 /**
  * This example uses pulsating circles CSS by Kevin Urrutia
  * http://kevinurrutia.tumblr.com/post/16411271583/creating-a-css3-pulsating-circle
  */
- $(function(){
-		
-		ShowTime();
-   });
+
 var map = AmCharts.makeChart("chartdiv", {
     type: "map",
     "theme": "none",
@@ -307,42 +336,5 @@ function createCustomMarker(image) {
 }
 
 </script>
-<body >
-<div class="wrapper row-offcanvas row-offcanvas-left">
-            <aside class="right-side">
-               
-                <section class="content-header">
-                    <h1>
-                       Google Map
-                        <small> service Contacts</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="${contextPath}/admin/adminHome"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">contacts</li>
-                    </ol>
-                </section>
-  				<input type="hidden" id="contextPath" value="${contextPath}"/>
-                <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                                <div class="box-header">
-                                   <h3 class="box-title">Google Map Contacts</h3> 
-                                </div>
-                                
-                                   <br/><br/>
-                                   <div id="chartdiv"></div>
-                                   
-                            
-                         </div>
-                     </div>
-                 </div>
-
-                </section>
-            </aside>
-        </div>
-        
-
 </body>
 </html>

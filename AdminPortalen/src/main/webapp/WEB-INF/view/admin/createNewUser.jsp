@@ -7,6 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Create New User</title>
 </head>
+<style type="text/css">
+
+</style>
 <body class="skin-blue">
 
 	<div class="wrapper row-offcanvas row-offcanvas-left">
@@ -58,7 +61,7 @@
                                         </div>
                                           <div class="form-group">
                                             <label for="exampleInputcontact">Contact Number</label>
-                                            <input type="text" class="form-control" name="contactno" id="contactno" required="required" placeholder="Enter contactno">
+                                            <input type="text" class="form-control" name="contactno" id="contactno"  placeholder="Enter contactno">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputcontact">user Role</label>
@@ -94,11 +97,67 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputcountry">Country</label>
-                                            <input type="text" class="form-control" name="country" id="country" required="required" placeholder="Enter country">
+                                           <!--  <input type="text" class="form-control" name="country" id="country" required="required" placeholder="Enter country"> -->
+	                                        <select onchange="print_state('state',this.selectedIndex);" id="country" name ="country"   class="form-control" required="required">
+										        <option >Select Country</option>
+										    </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputstate">State</label>
-                                            <input type="text" class="form-control" name="state" id="state" required="required" placeholder="Enter state">
+                                          <!--   <input type="text" class="form-control" name="state" id="state" required="required" placeholder="Enter state"> -->
+                                        <select name ="state" id="state" required="required" class="form-control">
+								        	<option >Select State</option>
+									        <option value="Alabama">Alabama</option>
+									        <option value="Alaska">Alaska</option>
+									        <option value="Arizona">Arizona</option>
+									        <option value="Arkansas">Arkansas</option>
+									        <option value="California">California</option>
+									        <option value="Colorado">Colorado</option>
+									        <option value="Connecticut">Connecticut</option>
+									        <option value="Delaware">Delaware</option>
+									        <option value="Florida">Florida</option>
+									        <option value="Georgia">Georgia</option>
+									        <option value="Hawaii">Hawaii</option>
+									        <option value="Idaho">Idaho</option>
+									        <option value="Illinois">Illinois</option>
+									        <option value="Indiana">Indiana</option>
+									        <option value="Iowa">Iowa</option>
+									        <option value="Kansas">Kansas</option>
+									        <option value="Kentucky">Kentucky</option>
+									        <option value="Louisiana">Louisiana</option>
+									        <option value="Maine">Maine</option>
+									        <option value="Maryland">Maryland</option>
+									        <option value="Massachusetts">Massachusetts</option>
+									        <option value="Michigan">Michigan</option>
+									        <option value="Minnesota">Minnesota</option>
+									        <option value="Mississippi">Mississippi</option>
+									        <option value="Missouri">Missouri</option>
+									        <option value="Montana">Montana</option>
+									        <option value="Nebraska">Nebraska</option>
+									        <option value="Nevada">Nevada</option>
+									        <option value="New Hampshire">New Hampshire</option>
+									        <option value="New Jersey">New Jersey</option>
+									        <option value="New Mexico">New Mexico</option>
+									        <option value="New York">New York</option>
+									        <option value="North Carolina">North Carolina</option>
+									        <option value="North Dakota">North Dakota</option>
+									        <option value="Ohio">Ohio</option>
+									        <option value="Oklahoma">Oklahoma</option>
+									        <option value="Oregon">Oregon</option>
+									        <option value="Pennsylvania">Pennsylvania</option>
+									        <option value="Rhode Island">Rhode Island</option>
+									        <option value="South Carolina">South Carolina</option>
+									        <option value="South Dakota">South Dakota</option>
+									        <option value="Tennessee">Tennessee</option>
+									        <option value="Texas">Texas</option>
+									        <option value="Utah">Utah</option>
+									        <option value="Vermont">Vermont</option>
+									        <option value="Virginia">Virginia</option>
+									        <option value="Washington">Washington</option>
+									        <option value="West Virginia">West Virginia</option>
+									        <option value="Wisconsin">Wisconsin</option>
+									        <option value="Wyoming">Wyoming</option>
+								    	</select>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputcity">City</label>
@@ -111,14 +170,14 @@
                                         </div> -->
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox">Agreeed
+                                                <input type="checkbox" id="acceptId" > Form Agreement Acceptance
                                             </label>
                                         </div>
                                     </div>
 
                                     <div class="box-footer" align="center">
                                     	 <button type="reset" class="btn btn-primary">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                         <button type="button"  id="submitBtn" class="btn btn-primary">Submit</button>
+                                         <button type="submit"  id="submitBtn" class="btn btn-primary">Submit</button>
                                           
                                     </div>
                                 </form>
@@ -131,14 +190,18 @@
             </aside>
         </div>
   
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<%--   <script src="${contextPath}/resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script> --%>
-  <script type="text/javascript">
+
+<script language="javascript">print_country("country");</script> 
+ 
+<script type="text/javascript">
+  
+  $('select option[value="USA"]').attr("selected",true);
+  
   var contextPath;
   $(function(){
 	  contextPath = $('#contextPath').val();
 	  ShowTime();
-	  $("#submitBtn").click(function(){
+	 /*  $("#submitBtn").click(function(){
 		$.blockUI({ 
 	    		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
 	    		css: { 
@@ -155,9 +218,87 @@
 		         $('#New-Userform')[0].reset();
 		            //location.reload();
 		      }); 
-	  });
+	  }); */
 	  
-	  
+	 //form validation messages
+	 
+	  $("#New-Userform").validate({
+			errorClass:'InputError',
+			validClass:'InputSuccess',
+			rules: {
+				username:{required:true},
+				firstname:{required:true},
+				 lastname:{required:true},
+				password:{required:true},
+				email:{required:true},
+				userRole:{required:true},
+				category:{required:true},
+				gender:{required:true},
+				country:{required:true},
+				state:{required:true},
+				city:{required:true},
+				acceptId:{required:true}, 
+				},
+				
+			messages: {			
+				username: {
+					required: "Please Enter Username"
+				},
+			    firstname: {
+					required: "Please Enter Firstname"
+				},
+				lastname: {
+					required: "Please Enter Lastname"
+				},
+				password: {
+					required: "Please Enter Password"
+				},
+				email: {
+					required: "Please Enter valid email"
+				},
+				userRole: {
+					required: "Please Select User Role"
+				},
+				category: {
+					required: "Please Select Category"
+				},
+				gender: {
+					required: "Please Select Gender"
+				},
+				country: {
+					required: "Please Select Country"
+				},
+				state: {
+					required: "Please Select State"
+				},
+				city: {
+					required: "Please Enter City"
+				},
+				acceptId: {
+					required: "Please Accept form"
+				}, 
+				
+			},
+			submitHandler: function(form) {			 
+				contextPath = $('#contextPath').val();
+				$.blockUI({ 
+		    		message: '<h3><img src="'+contextPath+'/resources/bootstrap/images/ajax-loader.gif"/></h3>',
+		    		css: { 
+		                border: 'none',     	               
+		                '-webkit-border-radius': '10px', 
+		                '-moz-border-radius': '10px',
+		            } 
+		    	}); 
+				 
+			  $.post(contextPath+"/admin/saveUserDetails",$('#New-Userform').serialize(), function(data) {
+				  	$.unblockUI();
+				  	 bootbox.alert(data.message,function(){
+						});
+			         $('#New-Userform')[0].reset();
+			            //location.reload();
+			      }); 
+				}
+			});
 	  
   });
   

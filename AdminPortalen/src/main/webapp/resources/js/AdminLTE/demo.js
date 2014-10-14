@@ -53,6 +53,24 @@ $(function() {
             + "</label>"
             + "</div>"
             + "</div>"
+            
+            + "<div class='form-group no-margin'>"
+            + "<div class='.radio'>"
+            + "<label>"
+            + "<input name='skins' type='radio' onchange='change_skin(\"skin-red\");'/> "
+            + "Red"
+            + "</label>"
+            + "</div>"
+            + "</div>"
+            
+            + "<div class='form-group no-margin'>"
+            + "<div class='.radio'>"
+            + "<label>"
+            + "<input name='skins' type='radio' onchange='change_skin(\"skin-pink\");' /> "
+            + "Pink"
+            + "</label>"
+            + "</div>"
+            + "</div>"
             );
 
     demo.click(function() {
@@ -63,7 +81,7 @@ $(function() {
         } else {
             $(this).css("right", "0");
             demo_settings.css("right", "-200px");
-            $(this).removeClass("open")
+            $(this).removeClass("open");
         }
     });
 
@@ -76,6 +94,6 @@ function change_layout() {
     fix_sidebar();
 }
 function change_skin(cls) {
-    $("body").removeClass("skin-blue skin-black");
+    $("body").removeClass("skin-blue skin-black skin-red skin-pink");
     $("body").addClass(cls);
 }

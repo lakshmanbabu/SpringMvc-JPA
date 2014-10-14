@@ -122,8 +122,8 @@
                         <!-- Left col -->
                         <section class="col-lg-6 connectedSortable"> 
                           
-                            <div class="box box-danger" id="loading-example">
-                            <!-- Chat box -->
+                            <%-- <div class="box box-danger" id="loading-example">
+                           	 <!-- Chat box -->
                             <div class="box box-success">
                                 <div class="box-header">
                                     <h3 class="box-title"><i class="fa fa-comments-o"></i> Chat</h3>
@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <!--  <div class="box-header">
+                              <div class="box-header">
                                    
                                     <div class="pull-right box-tools">
                                         <button class="btn btn-danger btn-sm refresh-btn" data-toggle="tooltip" title="Reload"><i class="fa fa-refresh"></i></button>
@@ -267,8 +267,8 @@
                                             <div class="knob-label">RAM</div>
                                         </div>
                                     </div>
-                                </div> -->
-                            </div>    
+                                </div>
+                            </div>     --%>
                             
                             <!-- Custom tabs (Charts with tabs)-->
                            <!--  <div class="nav-tabs-custom">

@@ -60,6 +60,7 @@ public class EmailSender {
 
 	public void sendWelcomeEmail(final User user, final Email email,final HttpServletRequest request,final HttpServletResponse response1) {
 		final Message localmessage = new Message();
+		final MessageFolder folder=new MessageFolder();
 		final Notifications notifications = new Notifications();
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {
 			public void prepare(MimeMessage mimeMessage) throws Exception {
@@ -76,14 +77,14 @@ public class EmailSender {
 				localmessage.setSubject("Your Account Created Successfully !");
 				localmessage.setBody(body);
 				email.setFrom(adminContact);
-				
+				folder.setBody(body);
 				// Set Notification
 				notifications.setNotifactionMsg("Admin Portal Account Created Successfully");;
 				notifications.setCheckMsg("new");
 			}
 		};
 		mailSender.send(preparator);
-		savelocalMessage(localmessage, email,user);
+		savelocalMessage(localmessage, email,user,folder);
 		saveNotificationMessage(notifications, email,user);
 		System.out.println("welcome email sent successfully");
 	}
@@ -121,6 +122,8 @@ public class EmailSender {
 	public void sendProtomotion(final Promotions promotions, final User user, final Email email,final HttpServletRequest request, final HttpServletResponse response1) {
 		final Notifications notifications = new Notifications();
 		final Message localmessage = new Message();
+		final MessageFolder folder=new MessageFolder();
+		
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {
 			public void prepare(MimeMessage mimeMessage) throws Exception {
 				Map<String, Object> model = new HashMap<String, Object>();
@@ -139,7 +142,7 @@ public class EmailSender {
 				
 				localmessage.setSubject(subject);
 				localmessage.setBody(body);
-				
+				folder.setBody(body);
 				
 				notifications.setNotifactionMsg(subject);
 				notifications.setCheckMsg("promote");
@@ -148,7 +151,7 @@ public class EmailSender {
 			};
 		mailSender.send(preparator);
 		saveNotificationMessage(notifications, email,user);
-		savelocalMessage(localmessage, email,user);
+		savelocalMessage(localmessage, email,user,folder);
 		System.out.println("mail send successfully");
 	}
 
@@ -156,6 +159,7 @@ public class EmailSender {
 		
 		final Notifications notifications = new Notifications();
 		final Message localmessage = new Message();
+		final MessageFolder folder=new MessageFolder();
 		MimeMessagePreparator preparator = new MimeMessagePreparator() {
 			@SuppressWarnings("unchecked")
 			public void prepare(MimeMessage mimeMessage) throws Exception {
@@ -181,6 +185,7 @@ public class EmailSender {
 				localmessage.setSubject(message1.getSubject());
 				localmessage.setBody(body);
 				
+				folder.setBody(body);
 				
 				notifications.setNotifactionMsg(message1.getSubject());
 				notifications.setCheckMsg("compose");
@@ -189,7 +194,7 @@ public class EmailSender {
 			};
 		mailSender.send(preparator);
 		saveNotificationMessage(notifications, email,user);
-		savelocalMessage(localmessage, email,user);
+		savelocalMessage(localmessage, email,user,folder);
 		System.out.println("mail send successfully");
 		
 	}
@@ -207,7 +212,7 @@ public class EmailSender {
 
 
 	@SuppressWarnings("unchecked")	
-	public void savelocalMessage(Message localMessage, Email email, User user) {
+	public void savelocalMessage(Message localMessage, Email email, User user, MessageFolder folder) {
 		logger.info("=====>All Email Saving In the local database<==========\n");
 		
 		
@@ -223,6 +228,8 @@ public class EmailSender {
 			receivermessageFolder.setUser(user);
 			receivermessageFolder.setReceiverEmail(email.getMailto());
 			receivermessageFolder.setSenderEmail(email.getFrom());
+			receivermessageFolder.setSubject(localMessage.getSubject());
+			receivermessageFolder.setBody(folder.getBody());
 			messageFolders.add(receivermessageFolder);
 		
 		if (messageFolders.size() >= 1) {

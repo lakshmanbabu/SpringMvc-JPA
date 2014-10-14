@@ -42,7 +42,6 @@
             </div>            
         </div><!-- /.center -->
         
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <!-- page script -->
        <script type="text/javascript">
            $(function() {

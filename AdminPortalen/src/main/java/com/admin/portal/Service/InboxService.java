@@ -19,4 +19,6 @@ public interface InboxService {
 
 	public List<MessageFolder> getSendItems(Integer userId, String email);
 
+	//public Message getMessageDetails(Integer id);
+
 }
