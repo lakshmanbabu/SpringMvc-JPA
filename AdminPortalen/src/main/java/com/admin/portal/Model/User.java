@@ -1,7 +1,6 @@
 package com.admin.portal.Model;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -49,7 +48,7 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="user_id")
+	@Column(name="userId")
 	public Integer getUserId() {
 		return userId;
 	}

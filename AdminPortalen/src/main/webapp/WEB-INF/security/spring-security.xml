@@ -27,8 +27,8 @@
 
 		<intercept-url pattern="/admin/adminLogin" access="permitAll()" />	
 		<intercept-url pattern="/admin/login" access="permitAll()" />	
-		<intercept-url pattern="/admin/loginfailed" access="hasRole('ROLE_ADMIN')" />	
-		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/admin/loginfailed" access="permitAll()" />	
+		<intercept-url pattern="/admin/**" access="permitAll()" />
 		
 		
 				
@@ -64,7 +64,7 @@
 		   users-by-username-query="select username,password,enabled from users where username=?" 
  
 		   authorities-by-username-query="select us.username, ur.authority from users us, user_roles ur   
-       									  where us.user_id = ur.user_id and us.username =?  "  
+       									  where us.userId = ur.user_id and us.username =?  "  
  
 		/>
 	   </authentication-provider>
